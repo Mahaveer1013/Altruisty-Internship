@@ -1,8 +1,9 @@
-import IPSS_form from "./IPSS_form";
-import IPSS_view from "./IPSS_view";
+import IpssForm from "./IpssForm";
+// import IpssView from "./IpssView";
 
 export function Main() {
     return <>
-        <IPSS_form />
+        <IpssForm />
+        {/* <IpssView /> */}
     </>
 }

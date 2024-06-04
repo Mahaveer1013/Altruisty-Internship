@@ -5,7 +5,7 @@ import Form2 from '../components/Form_2';
 import Form3 from '../components/Form_3';
 import Form4 from '../components/Form_4';
 
-export default function IPSS_form() {
+export default function IpssForm() {
 
     const [form_number, setFormNumber] = useState(1);
     console.log(form_number);

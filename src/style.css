@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .ipss-form-page{
     background-color: #ddd;
 }
@@ -141,5 +145,140 @@
 @media all and (max-width : 426px){
     .form-page form {
         width: 80%;
+    }
+}
+
+
+/* ipss-view */
+
+
+.ipss-view-page{
+    display: flex;
+    width: 100vw;
+}
+
+.ipss-view-poster{
+    min-width: fit-content;
+    margin: 3%;
+    background-position: center;
+    position: relative;
+}
+
+.ipss-view-poster img{
+    width: 100%;
+}
+
+.ipss-view-poster button{
+    position: absolute;
+    padding: 3% 10%;
+    font-size: 10%;
+    border-radius: 10px;
+    bottom: 7%;
+    border: none;
+}
+
+.ipss-view-poster button:first-child{
+    left: 120px;
+}
+
+.ipss-view-poster button:last-child{
+    right: 110px;
+}
+
+.ipss-view{
+    flex-grow: 1;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 30px;
+}
+
+.ipss-view-ul{
+    list-style: none;
+    font-size: 14px;
+    font-weight: 900;
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    color: #a2a2a2;
+    gap: 10px;
+    height: auto;
+}
+
+.ipss-view-ul li{
+    height: min-content;
+    border-radius: 8px;
+    padding: 6px 8px;
+    text-align: center;
+    border: 1px solid #a2a2a2;
+}
+
+.ipss-view-ul li.active{
+    color: black;
+    border: 1px solid black;
+    border-bottom: 2px solid black;
+}
+
+.ipss-view-dets{
+    overflow-y: auto;
+    flex-grow:1 ;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.ipss-view-dets .part{
+    background-color: #ddd;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+.ipss-view-dets .part button{
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #b6b4b4;
+}
+
+.ipss-view-dets .part .material-symbols-outlined{
+    margin-right: 15px;
+}
+
+.know-more-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.know-more-btn button{
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: #ddd;
+    border: none;
+}
+
+
+@media all and (max-width : 768px){
+    .ipss-view-page{
+        flex-direction: column;
+    }
+
+    .ipss-view-poster{
+        width: 94%;
+    }
+    
+    .ipss-view{
+        padding: 10px 20px;
+        margin: 0;
+    }
+
+    .ipss-view-ul{
+        font-size: 10px;
     }
 }

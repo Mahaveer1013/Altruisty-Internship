@@ -7,7 +7,7 @@ export function Main() {
         <HashRouter>
             <Routes>
                 <Route index element={<IpssForm />} />
-                <Route path="/view" element={<IpssView />} />
+                <Route path="view" element={<IpssView />} />
             </Routes>
         </HashRouter>
     </>

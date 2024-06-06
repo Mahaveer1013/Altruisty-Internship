@@ -34,8 +34,8 @@ export default function IpssForm() {
                     <img src={poster} alt={poster} />
                 </div>
                 <div className="form-page">
-                    { form_number === 1 ? <h1>Company details</h1> : <h1>Problem details</h1> }
-                    <h2>Post a Problem</h2>
+                    { form_number === 1 ? <h2>Company Details</h2> : <h2>Problem Details</h2> }
+                    <h3>Post a Problem</h3>
                     <div className="progress-line">
                         <div className="empty-line"></div>
                         <div className="filled-line"

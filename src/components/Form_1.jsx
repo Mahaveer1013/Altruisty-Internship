@@ -34,6 +34,7 @@ function Form1({ inc }){
                     name="companyName"
                     value={formData.companyName}
                     onChange={handleChange}
+                    placeholder='Eg : Altruisty'
                     required
                 />
                 
@@ -44,6 +45,7 @@ function Form1({ inc }){
                     name="cinNumber"
                     value={formData.cinNumber}
                     onChange={handleChange}
+                    placeholder='Eg : 1013'
                     required
                 />
                 
@@ -55,7 +57,7 @@ function Form1({ inc }){
                     onChange={handleChange}
                     required
                 >
-                    <option value="">Select an option</option>
+                    <option value="">Select your sector</option>
                     <option value="example 1">Example 1</option>
                     <option value="example 2">Example 2</option>
                     <option value="example 3">Example 3</option>
@@ -68,6 +70,7 @@ function Form1({ inc }){
                     name="companyMail"
                     value={formData.companyMail}
                     onChange={handleChange}
+                    placeholder='Eg : Altruisty@gmail.com'
                     required
                 />
                 
@@ -88,7 +91,12 @@ function Form1({ inc }){
                     value={formData.contactPersonEmail}
                     onChange={handleChange}
                 />
-                <button className="ipss-form-next" type="submit">Next</button>
+                <button className="ipss-form-next" type="submit">
+                    <span className="material-symbols-outlined">
+                        arrow_right_alt
+                    </span>
+                    Next
+                </button>
             </form>
         </>
     );

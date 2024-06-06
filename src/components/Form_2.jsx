@@ -63,7 +63,12 @@ function Form2({ inc }){
                     value={formData.themeName}
                     onChange={handleChange}
                 />
-                <button className="ipss-form-next" type="submit">Next</button>
+                <button className="ipss-form-next" type="submit">
+                    <span className="material-symbols-outlined">
+                        arrow_right_alt
+                    </span>
+                    Next
+                </button>
             </form>
         </>
     );

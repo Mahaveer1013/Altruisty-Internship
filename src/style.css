@@ -1,53 +1,107 @@
-*{
-    padding: 0;
+/* Reset some basic elements */
+body, h1, h2, p, img, div, span {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family: Arial, Helvetica, sans-serif;
+/* Styling the body */
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
-.ipss-form-page{
-    background-color: #ddd;
-}
-
-.ipss-form{
-    width: 100%;
-    height: calc( 100vh - 30px );
+/* Container for the entire form page */
+.ipss-form-page {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.top-btn{
+/* Styling the back button */
+.top-btn {
+    align-self: flex-start;
     display: flex;
     align-items: center;
-    font-size: 18px;
-    gap: 10px;
+    margin-bottom: 20px;
     cursor: pointer;
-    margin-left: 20px;
-    height: 30px;
+    color: #007bff;
 }
 
-.ipss-form-poster{
-    margin: 15px 20px;
-    width: calc(50% - 40px);
+.top-btn span {
+    margin-right: 5px;
+}
+
+/* Container for the form and poster */
+.ipss-form {
+    height: 755px;
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 95%;
+    max-width: 100%;
+}
+
+/* Styling for the poster section */
+
+.ipss-form-poster {
+    width: 40%;
+    display: flex;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    justify-content: center;
+    align-items: center;
+}
+
+.ipss-form-poster img {
+    max-width: 100%;
     height: auto;
 }
 
-.ipss-form-poster img{
-    width: 100%;
-    height: auto;
+/* Styling for the form section */
+/* .form-page {
+    flex: 2;
+    padding: 40px 20px;
 }
+
+.form-page h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.form-page h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.progress-line {
+    display: flex;
+    height: 8px;
+    margin-bottom: 20px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.filled-line {
+    background-color: #007bff;
+    transition: width 0.3s ease-in-out;
+} */
 
 .form-page{
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-grow: 1;
-    justify-content: start;
-}
-
-.form-page h1{
-    border-bottom: 5px solid black;
+    justify-content: flex-start;
+    padding-top: 15px;
 }
 
 .form-page h2{
@@ -101,17 +155,30 @@ body{
 }
 
 .form-page form label{
-    font-size: 18px;
+    font-size: 16px;
+    font-size: 500;
+    margin-top: 5px;
 }
 
 .form-page form input, .form-page form select, .form-page form textarea{
     border: none;
     outline: none;
-    background-color: #bdbaba;
+    background-color: #ddd;
     border-radius: 5px;
-    width: 100%;
-    padding: 6px 0;
+    width: 424px;
+    padding: 8px;
+    border-bottom: 1px solid black;
     color: black;
+    box-sizing: border-box;
+}
+
+.form-page form input:hover, .form-page form select:hover, .form-page form textarea:hover{
+    background-color: #d5d2d2;
+}
+
+.form-page form input:focus{
+    border-bottom: 2px solid rgb(61, 60, 60);
+    background-color: #cccaca;
 }
 
 .form-page form input, .form-page form textarea{
@@ -119,7 +186,7 @@ body{
 }
 
 .form-page form input::placeholder ,.form-page form textarea::placeholder{
-    color: rgb(77, 76, 76);
+    color: rgb(103, 102, 102);
 }
 
 .ipss-form-next{
@@ -127,159 +194,43 @@ body{
     background-color: #bdbaba;
     border-radius: 6px;
     padding: 10px;
-    width: 200px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     align-self: center;
 }
 
-@media all and (max-width : 768px){
-    .ipss-form{
+/* Responsive design */
+@media (max-width: 768px) {
+    .ipss-form {
         flex-direction: column;
-        height: 100%;
+        height: auto;
     }
 
-    .ipss-form-poster{
-        width: calc(100% - 40px);
+    .ipss-form-poster {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
     }
-}
+    .form-page form{
+        width: 80vw;
+    }
 
-@media all and (max-width : 426px){
-    .form-page form {
+    .form-page form input, .form-page form select, .form-page form textarea{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .progress-line{
         width: 80%;
     }
 }
 
-
-/* ipss-view */
-
-
-.ipss-view-page{
-    display: flex;
-    width: 100vw;
-}
-
-.ipss-view-poster{
-    min-width: fit-content;
-    margin: 3%;
-    background-position: center;
-    position: relative;
-}
-
-.ipss-view-poster img{
-    width: 100%;
-}
-
-.ipss-view-poster button{
-    position: absolute;
-    padding: 3% 10%;
-    font-size: 10%;
-    border-radius: 10px;
-    bottom: 7%;
-    border: none;
-}
-
-.ipss-view-poster button:first-child{
-    left: 120px;
-}
-
-.ipss-view-poster button:last-child{
-    right: 110px;
-}
-
-.ipss-view{
-    flex-grow: 1;
-    margin-right: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 10px 30px;
-}
-
-.ipss-view-ul{
-    list-style: none;
-    font-size: 14px;
-    font-weight: 900;
-    display: flex;
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 20px;
-    color: #a2a2a2;
-    gap: 10px;
-    height: auto;
-}
-
-.ipss-view-ul li{
-    cursor: pointer;
-    height: min-content;
-    border-radius: 8px;
-    padding: 6px 8px;
-    text-align: center;
-    border: 1px solid #a2a2a2;
-}
-
-.ipss-view-ul li.active{
-    color: black;
-    border: 1px solid black;
-    border-bottom: 2px solid black;
-}
-
-.ipss-view-dets{
-    overflow-y: auto;
-    flex-grow:1 ;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.ipss-view-dets .part{
-    background-color: #ddd;
-    padding: 6px;
-    border-radius: 4px;
-}
-
-.ipss-view-dets .part button{
-    border: none;
-    padding: 10px 15px;
-    margin-top: 10px;
-    border-radius: 5px;
-    background-color: #b6b4b4;
-}
-
-.ipss-view-dets .part .material-symbols-outlined{
-    margin-right: 15px;
-}
-
-.know-more-btn{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.know-more-btn button{
-    border-radius: 5px;
-    padding: 10px 15px;
-    background-color: #ddd;
-    border: none;
-}
-
-
-@media all and (max-width : 768px){
-    .ipss-view-page{
-        flex-direction: column;
+@media (max-width: 321px) {
+    .ipss-form-page{
+        padding: 20px 5px;
     }
-
-    .ipss-view-poster{
-        width: 94%;
-    }
-    
-    .ipss-view{
-        padding: 10px 20px;
-        margin: 0;
-    }
-
-    .ipss-view-ul{
-        font-size: 10px;
+    .ipss-form button{
+        padding: 5px 10px ;
     }
 }

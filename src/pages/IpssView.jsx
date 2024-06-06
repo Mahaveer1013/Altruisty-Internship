@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import view_poster from '../images/ipss-view-poster.png'
+import view_poster from '../images/ipss-view-poster.jpg'
 
 export default function IpssView() {
 
-    const [viewPage,setViewPage] = useState(4);
+    const [viewPage,setViewPage] = useState(1);
 
     const handleClick = (n) => {
         console.log(n);
@@ -41,19 +41,25 @@ export default function IpssView() {
             <>
                 <div className="part">
                     <p>For the companies to post the problem</p>
-                    <span className="material-symbols-outlined">post_add</span>
-                    <button>Post problem statement</button>
+                    <div className="part-btns">
+                        <span className="material-symbols-outlined">post_add</span>
+                        <button>Post problem statement</button>
+                    </div>
                     <br />
-                    <span className="material-symbols-outlined">visibility</span>
-                    <button>View the steps to post</button>
+                    <div className="part-btns">
+                        <span className="material-symbols-outlined">visibility</span>
+                        <button>View the steps to post</button>
+                    </div>
                 </div>
                 <div className="part">
                     <p>Join our program and leverage our platform to post your company's challenges, tapping into the collective problem-solving prowess of talented student participants. By being part of our program, companies gain access to fresh perspectives, innovative solutions, and potential collaborations, driving impactful outcomes for your business and fostering the next generation of industry leaders.</p>
                 </div>
                 <div className="part">
                     <p>View the problem statement</p>
-                    <span className="material-symbols-outlined">visibility</span>
-                    <button>View Problem Statement</button>
+                    <div className="part-btns">
+                        <span className="matezrial-symbols-outlined">visibility</span>
+                        <button>View Problem Statement</button>
+                    </div>
                 </div>
             </>
         )
@@ -73,8 +79,10 @@ export default function IpssView() {
                 </div>
                 <div className="part">
                     <p>View the problem statement</p>
-                    <span className="material-symbols-outlined">visibility</span>
-                    <button>View Problem Statement</button>
+                    <div className="part-btns">
+                        <span className="material-symbols-outlined">visibility</span>
+                        <button>View Problem Statement</button>
+                    </div>
                 </div>
             </>
         )
@@ -85,19 +93,25 @@ export default function IpssView() {
             <>
                 <div className="part">
                     <p>Students to participate in hackverse 2024</p>
-                    <span className="material-symbols-outlined">arrow_right_alt</span>
-                    <button>Post problem statement</button>
+                    <div className="part-btns">
+                        <span className="material-symbols-outlined">arrow_right_alt</span>
+                        <button>Post problem statement</button>
+                    </div>
                     <br />
-                    <span className="material-symbols-outlined">visibility</span>
-                    <button>View the steps to post</button>
+                    <div className="part-btns">
+                        <span className="material-symbols-outlined">visibility</span>
+                        <button>View the steps to post</button>
+                    </div>
                 </div>
                 <div className="part">
                     Join our program and seize the opportunity to participate in real-world problem-solving initiatives, collaborating with industry professionals to tackle pressing challenges. As a student participant, you'll gain invaluable hands-on experience, expand your skill set, and make meaningful contributions to innovative solutions, positioning yourself for future success in your academic and professional endeavors
                 </div>
                 <div className="part">
                     <p>View the problem statement</p>
-                    <span className="material-symbols-outlined">visibility</span>
-                    <button>View Problem Statement</button>
+                    <div className="part-btns">
+                        <span className="material-symbols-outlined">visibility</span>
+                        <button>View Problem Statement</button>
+                    </div>
                 </div>
             </>
         )
@@ -106,12 +120,16 @@ export default function IpssView() {
     return (
         <>
             <div className="ipss-view-page">
+                <div className="top-btn">
+                    <span className='material-symbols-outlined'>arrow_back</span> Back
+                </div>
+                <div className="ipss-view">
                 <div className="ipss-view-poster">
                     <img src={view_poster} alt={view_poster} />
                     {/* <button>INFO</button>
                     <button>APPLY</button> */}
                 </div>
-                <div className="ipss-view">
+                <div className="view-page">
                     <ul className='ipss-view-ul'>
                         <li className={(viewPage === 1 ? 'active ' : '') + 'ipss-view-li'} onClick={()=>handleClick(1)}>ABOUT IPSS</li>
                         <li className={(viewPage === 2 ? 'active ' : '') + 'ipss-view-li'} onClick={()=>handleClick(2)}>HOST PROGRAM</li>
@@ -124,6 +142,7 @@ export default function IpssView() {
                         {viewPage === 3 && active_program()}
                         {viewPage === 4 && apply_now()}
                     </div>
+                </div>
                 </div>
             </div>
         </>

@@ -5,7 +5,7 @@ body, h1, h2, p, img, div, span {
 }
 
 body {
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Helvetica, sans-serif ;
     background-color: #fff;
     color: #333;
 }
@@ -24,7 +24,7 @@ body {
     align-items: center;
     margin-bottom: 20px;
     cursor: pointer;
-    color: #007bff;
+    color: black;
 }
 
 .top-btn span {
@@ -34,9 +34,8 @@ body {
 .ipss-form {
     height: 755px;
     display: flex;
-    background-color: #dfdfdf;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 16px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 95%;
     max-width: 100%;
@@ -53,6 +52,7 @@ body {
 }
 
 .ipss-form-poster img {
+    width: 75%;
     max-width: calc(100% - 30px);
     height: auto;
     margin: 0 15px;
@@ -131,7 +131,7 @@ body {
     border-radius: 5px;
     width: 424px;
     padding: 8px;
-    border-bottom: 1px solid black;
+    border: 1px solid black;
     color: black;
     box-sizing: border-box;
 }
@@ -174,12 +174,17 @@ body {
 
     .ipss-form-poster {
         width: 100%;
+        height: 200px;
+        margin-top: 30px;
+        position: relative;
+        overflow-y: hidden;
         border-right: none;
         border-bottom: 1px solid #ddd;
     }
 
     .ipss-form-poster img {
         margin-top: 15px;
+        position: absolute;
     }
 
     .form-page form{
@@ -196,9 +201,19 @@ body {
     }
 }
 
-@media (max-width: 321px) {
+@media (max-width: 376px) {
     .ipss-form-page{
         padding: 20px 5px;
+        background-color: #ddd;
+    }
+    .ipss-form{
+        background-color: white;
+    }
+    .form-page form input, .form-page form select, .form-page form textarea{
+        background-color: rgb(234, 232, 232);
+    }
+    .ipss-form-poster {
+        height: 150px;
     }
     .ipss-form button{
         padding: 5px 10px ;

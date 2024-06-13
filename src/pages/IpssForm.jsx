@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import poster from '../images/form-poster.png'
+import poster from '../images/altruisty-logo.jpeg'
 import Form1 from '../components/Form_1'
 import Form2 from '../components/Form_2';
 import Form3 from '../components/Form_3';

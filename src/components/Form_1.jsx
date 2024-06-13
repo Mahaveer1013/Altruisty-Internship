@@ -22,6 +22,7 @@ function Form1({ inc }){
         e.preventDefault();
         console.log('Form data:', formData);
         inc();
+        //submit code here
     };
 
     return (

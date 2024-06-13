@@ -57,7 +57,7 @@ export default function IpssView() {
                 <div className="part">
                     <p>View the problem statement</p>
                     <div className="part-btns">
-                        <span className="matezrial-symbols-outlined">visibility</span>
+                    <span className="material-symbols-outlined">visibility</span>
                         <button>View Problem Statement</button>
                     </div>
                 </div>
@@ -126,8 +126,6 @@ export default function IpssView() {
                 <div className="ipss-view">
                 <div className="ipss-view-poster">
                     <img src={view_poster} alt={view_poster} />
-                    {/* <button>INFO</button>
-                    <button>APPLY</button> */}
                 </div>
                 <div className="view-page">
                     <ul className='ipss-view-ul'>

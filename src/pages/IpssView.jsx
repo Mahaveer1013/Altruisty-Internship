@@ -44,7 +44,7 @@ export default function IpssView() {
                     <p>For the companies to post the problem</p>
                     <div className="part-btns">
                         <span className="material-symbols-outlined">post_add</span>
-                        <button><Link to="/view">Post problem statement</Link></button>
+                        <button><Link to="/">Post problem statement</Link></button>
                     </div>
                     {/* <br />
                     <div className="part-btns">

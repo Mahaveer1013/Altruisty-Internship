@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body, h1, h2, p, img, div, span {
     margin: 0;
     padding: 0;
@@ -5,7 +7,7 @@ body, h1, h2, p, img, div, span {
 }
 
 body {
-    font-family: Helvetica, sans-serif ;
+    font-family: 'Poppins', sans-serif;
     background-color: #fff;
     color: #333;
 }
@@ -127,11 +129,11 @@ body {
 .form-page form input, .form-page form select, .form-page form textarea{
     border: none;
     outline: none;
-    background-color: #ddd;
+    /* background-color: #ddd; */
     border-radius: 5px;
     width: 424px;
     padding: 8px;
-    border: 1px solid black;
+    border: 1px solid #817e7e;
     color: black;
     box-sizing: border-box;
 }

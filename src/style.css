@@ -206,7 +206,7 @@ body {
 @media (max-width: 376px) {
     .ipss-form-page{
         padding: 20px 5px;
-        background-color: #ddd;
+        background-color: #f6f4f4;
     }
     .ipss-form{
         background-color: white;

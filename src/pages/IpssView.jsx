@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import view_poster from '../images/ipss-view-poster.jpg'
+import view_poster from '../images/altruisty-logo.jpeg'
 
 export default function IpssView() {
 
@@ -74,8 +74,8 @@ export default function IpssView() {
                     <p>With a Prize Pool of <b>₹2,00,000+</b> Internship / Full Time Opportunities Access to grants upto <b>$100,000</b></p>
                     <p><b>Date:</b> April 6-7, 2024</p>
                     <p><b>Venue:</b> Chennai</p>
-                    <p><b>Register Now:</b> https:// hackverse2024.devfolio.co</p>
-                    <p><b>Join the group for more updates:</b> https:// chat.whatsapp.com/ JUV4X0FiwR46EoVDVjv9wC</p>
+                    <p><b>Register Now:</b> <a href="https:// hackverse2024.devfolio.co">Devfolio Page</a></p>
+                    <p><b>Join the group for more updates:</b> <a href="https://chat.whatsapp.com/JUV4X0FiwR46EoVDVjv9wC">Join Whatsapp group</a></p>
                 </div>
                 <div className="part">
                     <p>View the problem statement</p>

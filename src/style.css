@@ -7,7 +7,8 @@ body, h1, h2, p, img, div, span {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Times New Roman', Times, serif;
     background-color: #fff;
     color: #333;
 }
@@ -240,7 +241,8 @@ body {
     flex-direction: column;
     border-radius: 10px;
     padding: 15px 0;
-    background-color: #d4d1d1;
+    /* background-color: #d4d1d1; */
+    box-shadow: 1px 1px 10px 1px;
 }
 
 .ipss-view-poster {
@@ -249,7 +251,7 @@ body {
     justify-content: center;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 13px 10px rgb(100 84 84 / 16%);
     overflow: hidden;
     margin-bottom: 20px;
     width: 800px;
@@ -345,7 +347,7 @@ body {
     border: none;
     background-color: #bdbaba;
     border-radius: 6px;
-    padding: 5px 10px;
+    padding: 10px 15px;
     width: 100px;
     display: flex;
     align-items: center;
@@ -370,5 +372,11 @@ body {
 
     .ipss-view-li:last-child {
         border-bottom: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .ipss-view-poster{
+        height: 150px;
     }
 }

@@ -342,6 +342,11 @@ body {
     background-color: #0056b3;
 }
 
+.part button a{
+    color: white;
+    text-decoration: none;
+}
+
 .know-more-btn button{
     margin-top: 10px;
     border: none;

@@ -6,8 +6,8 @@ export function Main() {
     return <>
         <HashRouter>
             <Routes>
-                <Route index element={<IpssForm />} />
-                <Route path="view" element={<IpssView />} />
+                <Route index element={<IpssView />} />
+                <Route path="view" element={<IpssForm />} />
             </Routes>
         </HashRouter>
     </>

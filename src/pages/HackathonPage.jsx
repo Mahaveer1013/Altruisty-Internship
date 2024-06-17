@@ -1,4 +1,3 @@
-import { useState } from "react";
 import React from "react";
 import Hackathon from "../components/Hackathon";
 import hackathon_poster_1 from '../images/medium_square.png'

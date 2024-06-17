@@ -1,6 +1,7 @@
 import IpssForm from "./IpssForm";
 import IpssView from "./IpssView";
 import { HashRouter, Routes, Route } from "react-router-dom";
+import ProblemStatement from "./HackathonPage";
 
 export function Main() {
     return <>
@@ -8,6 +9,7 @@ export function Main() {
             <Routes>
                 <Route index element={<IpssForm />} />
                 <Route path="view" element={<IpssView />} />
+                <Route path="hackathons" element={<ProblemStatement />} />
             </Routes>
         </HashRouter>
     </>

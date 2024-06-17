@@ -6,6 +6,8 @@ const Form4 = () => {
         timeline: ''
     });
 
+    const [poster, setPoster] = useState(null);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevFormData => ({
@@ -14,9 +16,25 @@ const Form4 = () => {
         }));
     };
 
+    const handleFileChange = (e) => {
+        setPoster(e.target.files[0]);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form data:', formData);
+        // Create form data to include the file
+        const data = new FormData();
+        data.append('supportingResources', formData.supportingResources);
+        data.append('timeline', formData.timeline);
+        if (poster) {
+            data.append('poster', poster);
+        }
+
+        // Handle form submission
+        console.log('Form data:', {
+            ...formData,
+            poster
+        });
     };
 
     return (
@@ -41,7 +59,15 @@ const Form4 = () => {
                     onChange={handleChange}
                     required
                 />
-            
+                
+                <label htmlFor="poster">Poster for hackathon</label>
+                <input
+                    type='file'
+                    id="poster"
+                    name="poster"
+                    onChange={handleFileChange}
+                />
+
                 <button className='ipss-form-next' type="submit">Submit</button>
             </form>
         </>

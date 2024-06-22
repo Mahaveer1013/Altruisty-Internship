@@ -1,67 +1,119 @@
 import React, { useState } from 'react';
 
-function Form2({ inc }){
-    const [formData, setFormData] = useState({
+function Form2({ handleSubmit }) {
+    const [problemFormData, setProblemFormData] = useState({
         problemTitle: '',
         problemStatement: '',
         problemDescription: '',
-        themeName: ''
+        themeName: '',
+        expectedOutcome: '',
+        constraintsRequirements: '',
+        evaluationCriteria: '',
+        supportingResources: '',
+        timeline: '',
     });
 
-    const handleChange = (e) => {
+    const handleProblemFormChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prevFormData => ({
+        setProblemFormData(prevFormData => ({
             ...prevFormData,
             [name]: value
         }));
     };
 
-    const handleSubmit = (e) => {
+
+    const handleProblemSubmit = (e) => {
         e.preventDefault();
-        console.log('Form data:', formData);
-        inc(); // Call the increment function to move to the next form
+        handleSubmit(problemFormData);
     };
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleProblemSubmit}>
                 <label htmlFor="problemTitle">Problem Statement Title <span>*</span></label>
                 <input
                     type="text"
                     id="problemTitle"
                     name="problemTitle"
-                    value={formData.problemTitle}
-                    onChange={handleChange}
+                    value={problemFormData.problemTitle}
+                    onChange={handleProblemFormChange}
                     required
                 />
-                
+
                 <label htmlFor="problemStatement">Problem Statement <span>*</span></label>
                 <textarea
                     id="problemStatement"
                     name="problemStatement"
                     placeholder="Describe in 200-250 characters."
-                    value={formData.problemStatement}
-                    onChange={handleChange}
+                    value={problemFormData.problemStatement}
+                    onChange={handleProblemFormChange}
                     required
                 />
-                
+
                 <label htmlFor="problemDescription">Problem Description <span>*</span></label>
                 <textarea
                     id="problemDescription"
                     name="problemDescription"
                     placeholder="Describe in 200-250 characters."
-                    value={formData.problemDescription}
-                    onChange={handleChange}
+                    value={problemFormData.problemDescription}
+                    onChange={handleProblemFormChange}
                     required
                 />
-                
+
                 <label htmlFor="themeName">Theme Name <span>*</span></label>
                 <input
                     type="text"
                     id="themeName"
                     name="themeName"
-                    value={formData.themeName}
-                    onChange={handleChange}
+                    value={problemFormData.themeName}
+                    onChange={handleProblemFormChange}
+                />
+                <label htmlFor="expectedOutcome">Expected Outcome <span>*</span></label>
+                <textarea
+                    id="expectedOutcome"
+                    name="expectedOutcome"
+                    placeholder="Describe in 200-250 characters."
+                    value={problemFormData.expectedOutcome}
+                    onChange={handleProblemFormChange}
+                    required
+                />
+
+                <label htmlFor="constraintsRequirements">Constraints and Requirements <span>*</span></label>
+                <textarea
+                    id="constraintsRequirements"
+                    name="constraintsRequirements"
+                    placeholder="Describe in 200-250 characters."
+                    value={problemFormData.constraintsRequirements}
+                    onChange={handleProblemFormChange}
+                    required
+                />
+
+                <label htmlFor="evaluationCriteria">Evaluation Criteria <span>*</span></label>
+                <input
+                    type="text"
+                    id="evaluationCriteria"
+                    name="evaluationCriteria"
+                    value={problemFormData.evaluationCriteria}
+                    onChange={handleProblemFormChange}
+                />
+                <label htmlFor="supportingResources">Supporting Resources <span>*</span></label>
+                <textarea
+                    id="supportingResources"
+                    name="supportingResources"
+                    placeholder="Describe in 200-250 characters."
+                    value={problemFormData.supportingResources}
+                    onChange={handleProblemFormChange}
+                    required
+                />
+
+                <label htmlFor="timeline">Timeline <span>*</span></label>
+                <textarea
+                    id="timeline"
+                    name="timeline"
+                    placeholder="Describe in 200-250 characters."
+                    value={problemFormData.timeline}
+                    onChange={handleProblemFormChange}
+                    required
                 />
                 <button className="ipss-form-next" type="submit">
                     <span className="material-symbols-outlined">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-function Form1({ setFormPage, setFormData }){
-    const [companyFormData, setCompanyFormData] = useState({
+function Form1({ inc }){
+    const [formData, setFormData] = useState({
         companyName: '',
         cinNumber: '',
         industrySector: '',
@@ -10,22 +10,19 @@ function Form1({ setFormPage, setFormData }){
         contactPersonEmail: ''
     });
 
-    const handleCompanyFormChange = (e) => {
+    const handleChange = (e) => {
         const { name, value } = e.target;
-        setCompanyFormData(prevcompanyFormData => ({
-            ...prevcompanyFormData,
+        setFormData(prevFormData => ({
+            ...prevFormData,
             [name]: value
         }));
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setFormData(prevFormData => ({
-            ...prevFormData,
-            ...companyFormData
-        }));
-        console.log(companyFormData);
-        setFormPage(2);
+        console.log('Form data:', formData);
+        inc();
+        //submit code here
     };
 
     return (
@@ -36,19 +33,19 @@ function Form1({ setFormPage, setFormData }){
                     type="text"
                     id="companyName"
                     name="companyName"
-                    value={companyFormData.companyName}
-                    onChange={handleCompanyFormChange}
+                    value={formData.companyName}
+                    onChange={handleChange}
                     placeholder='Eg : Altruisty'
                     required
                 />
                 
-                <label htmlFor="cinNumber">CIN Number <span>*</span></label>
+                <label htmlFor="cinNumber">Cin Number <span>*</span></label>
                 <input
                     type="text"
                     id="cinNumber"
                     name="cinNumber"
-                    value={companyFormData.cinNumber}
-                    onChange={handleCompanyFormChange}
+                    value={formData.cinNumber}
+                    onChange={handleChange}
                     placeholder='Eg : 1013'
                     required
                 />
@@ -57,8 +54,8 @@ function Form1({ setFormPage, setFormData }){
                 <select
                     name="industrySector"
                     id="industrySector"
-                    value={companyFormData.industrySector}
-                    onChange={handleCompanyFormChange}
+                    value={formData.industrySector}
+                    onChange={handleChange}
                     required
                 >
                     <option value="">Select your sector</option>
@@ -72,8 +69,8 @@ function Form1({ setFormPage, setFormData }){
                     type="email"
                     id="companyMail"
                     name="companyMail"
-                    value={companyFormData.companyMail}
-                    onChange={handleCompanyFormChange}
+                    value={formData.companyMail}
+                    onChange={handleChange}
                     placeholder='Eg : Altruisty@gmail.com'
                     required
                 />
@@ -84,16 +81,16 @@ function Form1({ setFormPage, setFormData }){
                     placeholder="Name"
                     id="contactPersonName"
                     name="contactPersonName"
-                    value={companyFormData.contactPersonName}
-                    onChange={handleCompanyFormChange}
+                    value={formData.contactPersonName}
+                    onChange={handleChange}
                 />
                 <input
                     type="email"
                     placeholder="Email"
                     id="contactPersonEmail"
                     name="contactPersonEmail"
-                    value={companyFormData.contactPersonEmail}
-                    onChange={handleCompanyFormChange}
+                    value={formData.contactPersonEmail}
+                    onChange={handleChange}
                 />
                 <button className="ipss-form-next" type="submit">
                     <span className="material-symbols-outlined">

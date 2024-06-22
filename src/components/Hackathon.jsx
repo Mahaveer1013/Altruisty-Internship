@@ -1,37 +1,33 @@
-import default_poster from '../images/default_hackathon_poster.jpg'
+import { Link } from "react-router-dom";
 
 export default function Hackathon(props) {
-    
+
     return (
         <div className="hackathon-comp">
-            <div className="hackathon-comp-poster">
-                <img src={props.img} alt={default_poster} />
-                <div className="poster-title">
-                    <h3>{props.title}</h3>
-                </div>
+            <div className="title">
+                <h3>{props.title}</h3>
             </div>
-            <div className="hackathon-comp-dets">
-                <div className="title">
-                    <h3>{props.title}</h3>
+            <div className="company-name">
+                <span className="material-symbols-outlined">
+                    build
+                </span>
+                <p>{props.company_name}</p>
+            </div>
+            <div className="problem-statement">
+                <p className='problem-heading'>Problem Statement:</p>
+                <p className='problem'>&nbsp;&nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quibusdam dicta sint est neque animi, aut quia, deserunt optio officiis voluptas laborum excepturi fugit vel quisquam nam eveniet molestiae. Dolor, saepe blanditiis odit distinctio quod nostrum! Eius quos quaerat, aspernatur, harum deleniti consectetur illo ad officiis mollitia esse saepe eveniet. </p>
+            </div>
+            <div className='time-n-view'>
+                <div className="timeline">
+                    <div className="circle"></div>
+                    <p>{props.timeline}</p>
                 </div>
-                <div className="company-name">
+                <Link to={`/hackathons/${props.id}`} className="view-btn">
+                    View Details
                     <span className="material-symbols-outlined">
-                        build
+                        arrow_forward
                     </span>
-                    <p>{ props.company_name }</p>
-                </div>
-                <div className='time-n-mode'>
-                    <div className="timeline">
-                        <div className="circle"></div>
-                        <p>{props.timeline}</p>
-                    </div>
-                    <div className="mode">
-                        <span className="material-symbols-outlined">
-                            Public
-                        </span>
-                        <p>{props.mode}</p>
-                    </div>
-                </div>
+                </Link>
             </div>
         </div>
     )

@@ -1,0 +1,38 @@
+.view-hackathon {
+    padding: 20px;
+}
+
+.view-hackathon .problem-title {
+    color: var(--orange);
+}
+
+.view-hackathon .problem-n-rules {
+    display: flex;
+    gap: 20px;
+}
+
+.view-hackathon .problem-details {
+    width: 60%;
+}
+
+.view-hackathon .problem-rules {
+    width: 40%;
+}
+
+.view-hackathon .timeline {
+    width: auto;
+    padding: 3px;
+    padding-right: 12px;
+    border-radius: 15px;
+    display: flex;
+    color: white;
+    background-color: #23a196;
+}
+
+.view-hackathon .timeline .circle {
+    width: 6px;
+    height: 6px;
+    margin: auto 6px;
+    border-radius: 50%;
+    background-color: white;
+}

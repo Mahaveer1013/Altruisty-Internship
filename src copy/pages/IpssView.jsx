@@ -3,7 +3,7 @@ import view_poster from '../images/altruisty-logo.jpeg'
 import { Link } from 'react-router-dom';
 
 export default function IpssView() {
-
+    
     const [viewPage,setViewPage] = useState(1);
 
     const handleClick = (n) => {
@@ -46,11 +46,6 @@ export default function IpssView() {
                         <span className="material-symbols-outlined">post_add</span>
                         <button><Link to="/">Post problem statement</Link></button>
                     </div>
-                    {/* <br />
-                    <div className="part-btns">
-                        <span className="material-symbols-outlined">visibility</span>
-                        <button>View the steps to post</button>
-                    </div> */}
                 </div>
                 <div className="part">
                     <p>Join our program and leverage our platform to post your company's challenges, tapping into the collective problem-solving prowess of talented student participants. By being part of our program, companies gain access to fresh perspectives, innovative solutions, and potential collaborations, driving impactful outcomes for your business and fostering the next generation of industry leaders.</p>
@@ -98,11 +93,6 @@ export default function IpssView() {
                         <span className="material-symbols-outlined">arrow_right_alt</span>
                         <button>Apply to participate</button>
                     </div>
-                    {/* <br />
-                    <div className="part-btns">
-                        <span className="material-symbols-outlined">visibility</span>
-                        <button>View the steps to apply</button>
-                    </div> */}
                 </div>
                 <div className="part">
                     Join our program and seize the opportunity to participate in real-world problem-solving initiatives, collaborating with industry professionals to tackle pressing challenges. As a student participant, you'll gain invaluable hands-on experience, expand your skill set, and make meaningful contributions to innovative solutions, positioning yourself for future success in your academic and professional endeavors
@@ -147,5 +137,3 @@ export default function IpssView() {
         </>
     )
 }
-
-

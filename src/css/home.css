@@ -1,0 +1,143 @@
+.home > .title p{
+    font-size: 29px;
+    margin: 15px;
+    font-weight: bolder;
+    color: var(--orange);
+}
+
+.home .details ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 100px;
+    background-color: var(--bg);
+}
+
+.home .details ul li{
+    padding: 7px 10px;
+    transition: background-color .3s ;
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+.home .details ul li:hover{
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.home .details ul li.active{
+    color: var(--orange);
+}
+
+.home .det-page{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.home .det-page .part{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    margin: 30px;
+    background-color: var(--bg);
+    border-radius: 3px;
+    width: 40%;
+    transition: .3s;
+    border: 1px solid var(--blue);
+}
+
+.home .det-page .part:hover{
+    background-color: #ddd;
+}
+
+.home .det-page h3{
+    color: var(--blue);
+}
+
+.home .det-page .host-part{
+    border: 1px solid var(--blue);
+}
+
+span.orange{
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.home .det-page .host-part a{
+    color: black;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 200px;
+    align-self: center;
+}
+
+.home .det-page .host-part p{
+    margin-bottom: 10px;
+}
+
+.home .det-page .host-part a:hover{
+    color: var(--orange);
+    background-color: #ddd;
+}
+
+.know-more-btn{
+    width: 100%;
+    text-align: center;
+}
+
+.know-more-btn button{
+    padding: 10px 20px;
+    cursor: pointer;    
+}
+
+.det-page .host-part{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    margin: 30px;
+    background-color: var(--bg);
+    border-radius: 3px;
+    width: 40%;
+    transition: .3s;
+}
+
+
+@media all and (max-width:768px){
+    .home > .title p{
+        font-size: 22px;
+    }
+    .home .details ul{
+        width: 100%;
+        margin: 20px 0;
+        font-size: 16px;
+    }
+    .home .details ul li{
+        padding: 7px 5px;
+        text-align: center;
+    }
+    .home .det-page .part, .home .det-page .host-part{
+        width: 100%;
+        margin: 20px;
+    }
+
+}
+
+
+@media all and (max-width:425px){
+    .home > .title p{
+        font-size: 20px;
+    }
+}

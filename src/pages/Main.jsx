@@ -1,5 +1,4 @@
-import ProblemStatement from "./HackathonPage";
-import { HashRouter, Routes, Route, BrowserRouter } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Navbar from "../components/Navbar";
 import PostProblem from "./PostProblem";
@@ -10,7 +9,7 @@ import ViewHackathon from "./ViewHackathon";
 
 export function Main() {
     return <>
-        <BrowserRouter>
+        <HashRouter>
             <Navbar />
             <div className="main">
                 <Routes>
@@ -28,7 +27,7 @@ export function Main() {
                     </Route>
                 </Routes>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     </>
 }
 

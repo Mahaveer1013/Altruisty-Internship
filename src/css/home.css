@@ -59,6 +59,7 @@
 
 .home .det-page h3{
     color: var(--blue);
+    text-align: center;
 }
 
 .home .det-page .host-part{

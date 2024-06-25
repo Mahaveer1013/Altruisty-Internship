@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import '../css/home.css'
 import { Link } from 'react-router-dom';
 import home_1 from '../images/home_1.webp';
-// import home_2 from '../images/home_2.svg';
-// import home_3 from '../images/home_3.svg';
-// import home_4 from '../images/home_4.svg';
-// import home_5 from '../images/home_5.svg';
+import home_2 from '../images/home_2.jpeg';
+import home_3 from '../images/home_3.webp';
+import home_4 from '../images/home_4.jpeg';
+import home_5 from '../images/home_5.jpg';
 
 const Home = () => {
 
@@ -19,7 +19,7 @@ const Home = () => {
           <p>"Industry Problem Solving by Students" is a platform where students collaborate to tackle real-world challenges, applying their innovative thinking and academic knowledge to propose effective solutions, fostering experiential learning and practical skill development.</p>
         </div>
         <div className="quote-part two">
-          <img src={home_1} alt="Hello" />
+          <img src={home_1} alt={home_1} />
         </div>
         <div className="quote-part four">
           <h1>We love <span className='orange'>problems</span> and the people who <span className='orange'>solve</span> them.</h1>
@@ -33,10 +33,10 @@ const Home = () => {
           <p>This platform offers students invaluable opportunities to gain practical experience, collaborate with industry professionals, and make meaningful contributions to solving real-world challenges, enhancing their skill sets and future employability.</p>
         </div>
         <div className="quote-part six">
-          <img src="https://i0.wp.com/tecknoworks.com/wp-content/uploads/2020/01/hackathon-1.png" alt="https://i0.wp.com/tecknoworks.com/wp-content/uploads/2020/01/hackathon-1.png" />
+          <img src={home_3} alt={home_3} />
         </div>
         <div className="quote-part eight">
-          <img src="https://th.bing.com/th/id/OIP.zhNFVeh7vMU1mPFE_TqbaQAAAA?rs=1&pid=ImgDetMain" alt="https://th.bing.com/th/id/OIP.zhNFVeh7vMU1mPFE_TqbaQAAAA?rs=1&pid=ImgDetMain" />
+          <img src={home_4} alt={home_4} />
         </div>
         <div className="part seven">
           <h3>Process</h3>
@@ -60,7 +60,7 @@ const Home = () => {
           <h1><span className="orange">Hackathon: </span>where students innovate and collaborate.</h1>
         </div>
         <div className="quote-part four">
-          <img src="https://res.cloudinary.com/devex/image/fetch/https://lh4.googleusercontent.com/VQyrPPyh-FGdV2BJtlcwDphesnxERD6SLWvGtARygLDVNSsXhFF0kzG_yXvLyiARZbKIG3VYF_CIbF4_B-Wy3Eu7kKhHKKR3pq_2ob2pdZgxt_Wz_uqXjRMrhIBKREQnJo--Ui9b" alt="https://res.cloudinary.com/devex/image/fetch/https://lh4.googleusercontent.com/VQyrPPyh-FGdV2BJtlcwDphesnxERD6SLWvGtARygLDVNSsXhFF0kzG_yXvLyiARZbKIG3VYF_CIbF4_B-Wy3Eu7kKhHKKR3pq_2ob2pdZgxt_Wz_uqXjRMrhIBKREQnJo--Ui9b" />
+          <img src={home_2} alt={home_2} />
         </div>
         <div className="host-part three">
           <h3>For the companies to post the problem</h3>
@@ -73,7 +73,7 @@ const Home = () => {
           <Link to='/hackathons'> <span className="material-symbols-outlined">visibility</span>View Problems</Link>
         </div>
         <div className="quote-part six">
-          <img src="https://i0.wp.com/tecknoworks.com/wp-content/uploads/2020/01/hackathon-1.png" alt="https://i0.wp.com/tecknoworks.com/wp-content/uploads/2020/01/hackathon-1.png" />
+          <h1>Get your <span className="orange">problem</span> solved by talents</h1>
         </div>
       </>
     )
@@ -91,7 +91,7 @@ const Home = () => {
             <h1>Provide <span className="orange">solution</span> and get exciting connection and rewards.</h1>
         </div>
         <div className="quote-part four">
-          <img src="https://studyinternational.com/wp-content/uploads/2019/10/alex-kotliarskyi-ourQHRTE2IM-unsplash.jpg" alt="https://studyinternational.com/wp-content/uploads/2019/10/alex-kotliarskyi-ourQHRTE2IM-unsplash.jpg" />
+          <img src={home_5} alt={home_5} />
         </div>
         <div className="part three">
           <h3>About</h3>

@@ -147,8 +147,7 @@ export default function HackathonPage() {
                             <thead>
                                 <tr>
                                     <td>Name</td>
-                                    <td className="hackathons-th">Solutions submitted</td>
-                                    <td></td>
+                                    <td className="hackathons-th" colSpan={2}>Solutions submitted</td>
                                 </tr>
                             </thead>
                             <tbody>

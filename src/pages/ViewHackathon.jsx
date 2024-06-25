@@ -28,7 +28,7 @@ const ViewHackathon = () => {
             <div className="circle"></div>
             <p>27 Jun 2024 @ 5:30am GMT+5:30</p>
           </div>
-
+          
         </div>
       </div>
     </div>

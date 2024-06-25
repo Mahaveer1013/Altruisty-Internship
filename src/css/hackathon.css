@@ -187,7 +187,7 @@
 }
 
 .problem-statement .problem{
-    height: 60px;                  /* Set the height of the div */
+    height: 56px;                  /* Set the height of the div */
     margin: 10px 0;
     overflow: hidden;               /* Hide the overflowing content */
     display: -webkit-box;           /* Required for applying ellipsis */
@@ -497,17 +497,23 @@
     .hackathon-leaderboard-table{
         font-size: 16px;
         width: 100%;
-        border-spacing:10px ;
+    }
+    .hackathon-leaderboard-table thead tr td{
+        padding: 0;
+        width: 50%;
+    }
+    .hackathon-leaderboard-table tbody tr td:first-child{
+        width: 50%;
     }
     .hackathon-leaderboard-table tbody tr td a{
         margin-left: 3px;
     }
-    .hackathon-leaderboard-table .hackathons-small-th{
+    /* .hackathon-leaderboard-table .hackathons-small-th{
         display: block;
     }
     .hackathon-leaderboard-table .hackathons-th{
         display: none;
-    }
+    } */
     .hackathon-comp .problem-statement{
         padding-left:15px ;
     }

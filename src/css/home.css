@@ -1,42 +1,47 @@
+.home{
+    background-color: #f5f7f7;
+}
 .home > .title p{
     font-size: 29px;
-    margin: 15px;
+    padding: 15px;
     font-weight: bolder;
     color: var(--orange);
 }
 
-.home .details ul{
+.home .details{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     gap: 20px;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 600;
-    margin: 10px 100px;
-    background-color: var(--bg);
+    width: fit-content;
+    margin: auto;
+    padding: 0;
+    background-color: white;
 }
 
-.home .details ul li{
+.home .details li{
     padding: 7px 10px;
+    height: 100%;
     transition: background-color .3s ;
     border-radius: 3px;
-    margin: 10px 0;
 }
 
-.home .details ul li:hover{
+.home .details li:hover{
     background-color: #ddd;
     cursor: pointer;
 }
 
-.home .details ul li.active{
-    color: var(--orange);
+.home .details li.active{
+    color: white;
+    background-color: var(--blue);
 }
 
 .home .det-page{
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
+    align-items:safe;
     justify-content: center;
 }
 
@@ -44,26 +49,51 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    text-align: center;
     padding: 10px;
+    letter-spacing: 1px;
     margin: 30px;
-    background-color: var(--bg);
-    border-radius: 3px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(3, 0, 92, 0.12) 0px 1px 3px, rgba(3, 0, 92, 0.07) 0px 4px 11px;
     width: 40%;
+    justify-content: center;
     transition: .3s;
-    border: 1px solid var(--blue);
+    border: 1px solid transparent;
 }
 
 .home .det-page .part:hover{
-    background-color: #ddd;
+    box-shadow: 0 0 10px 10px #ddd;
+}
+
+.home .det-page .part:hover h3{
+    color: var(--orange);
+}
+
+.home .det-page .quote-part{
+    margin: 30px;
+    width: 40%;
+    height: 60%;
+    color: black;
+    align-self: center;
+    font-size: 23px;
+    text-align: center;
+}
+
+.home .det-page .quote-part img{
+    width: 80%;
+    border-radius: 10px;
 }
 
 .home .det-page h3{
     color: var(--blue);
     text-align: center;
+    font-size: 27px;
+    margin-bottom: 20px;
 }
 
-.home .det-page .host-part{
-    border: 1px solid var(--blue);
+.home .det-page p{
+    font-size: 20px;
 }
 
 span.orange{
@@ -71,15 +101,30 @@ span.orange{
     font-weight: bold;
 }
 
+.det-page .host-part{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    letter-spacing: 1px;
+    box-shadow: rgba(3, 0, 92, 0.12) 0px 1px 3px, rgba(3, 0, 92, 0.07) 0px 4px 11px;
+    padding: 10px;
+    margin: 30px;
+    background-color: white;
+    border-radius: 3px;
+    width: 40%;
+    border: 1px solid transparent;
+    transition: .3s;
+}
+
 .home .det-page .host-part a{
-    color: black;
+    color: white;
     display: flex;
     gap: 5px;
     justify-content: center;
     align-items: center;
+    background-color: var(--blue);
     padding: 8px 10px;
-    border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 5px;
     width: 200px;
     align-self: center;
 }
@@ -88,31 +133,26 @@ span.orange{
     margin-bottom: 10px;
 }
 
-.home .det-page .host-part a:hover{
-    color: var(--orange);
-    background-color: #ddd;
-}
-
 .know-more-btn{
     width: 100%;
     text-align: center;
 }
 
-.know-more-btn button{
-    padding: 10px 20px;
-    cursor: pointer;    
+.home .det-page .host-part:hover{
+    box-shadow: 0 0 10px 10px #ddd;
 }
 
-.det-page .host-part{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 10px;
-    margin: 30px;
-    background-color: var(--bg);
-    border-radius: 3px;
-    width: 40%;
-    transition: .3s;
+.know-more-btn button{
+    padding: 10px 20px;
+    cursor: pointer;  
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 100px;  
 }
 
 
@@ -120,18 +160,55 @@ span.orange{
     .home > .title p{
         font-size: 22px;
     }
-    .home .details ul{
+    .home .details{
         width: 100%;
         margin: 20px 0;
         font-size: 16px;
     }
-    .home .details ul li{
+    .home .details li{
         padding: 7px 5px;
         text-align: center;
     }
     .home .det-page .part, .home .det-page .host-part{
         width: 100%;
-        margin: 20px;
+        margin: 30px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .home .det-page .quote-part{
+        width: 100%;
+        margin: 0;
+    }
+    .home .det-page .quote-part img{
+        width: 100%;
+        border-radius: 0;
+    }
+    .home .det-page .one{
+        order: 1;
+    }
+    .home .det-page .two{
+        order: 2;
+    }
+    .home .det-page .three{
+        order: 3;
+    }
+    .home .det-page .four{
+        order: 4;
+    }
+    .home .det-page .five{
+        order: 5;
+    }
+    .home .det-page .six{
+        order: 6;
+    }
+    .home .det-page .seven{
+        order: 7;
+    }
+    .home .det-page .eight{
+        order: 8;
+    }
+    .home .det-page .nine{
+        order: 9;
     }
 
 }
@@ -140,5 +217,18 @@ span.orange{
 @media all and (max-width:425px){
     .home > .title p{
         font-size: 20px;
+    }
+    .home .det-page h3{
+        font-size: 22px;
+    }
+    .home .det-page p{
+        font-size: 17px;
+    }
+    .home .det-page .quote-part{
+        font-size: 20px;
+        padding: 0;
+    }
+    .home .details{
+        gap: 10px;
     }
 }

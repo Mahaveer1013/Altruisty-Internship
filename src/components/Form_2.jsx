@@ -11,6 +11,7 @@ function Form2({ handleSubmit }) {
         evaluationCriteria: '',
         supportingResources: '',
         timeline: '',
+        imageFile: null
     });
 
     const handleProblemFormChange = (e) => {
@@ -21,6 +22,13 @@ function Form2({ handleSubmit }) {
         }));
     };
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setProblemFormData(prevFormData => ({
+            ...prevFormData,
+            imageFile: file
+        }));
+    };
 
     const handleProblemSubmit = (e) => {
         e.preventDefault();
@@ -113,6 +121,14 @@ function Form2({ handleSubmit }) {
                     placeholder="Describe in 200-250 characters."
                     value={problemFormData.timeline}
                     onChange={handleProblemFormChange}
+                    required
+                />
+                <label htmlFor="imageFile">Upload Image <span>*</span></label>
+                <input
+                    type="file"
+                    id="imageFile"
+                    name="imageFile"
+                    onChange={handleFileChange}
                     required
                 />
                 <button className="ipss-form-next" type="submit">

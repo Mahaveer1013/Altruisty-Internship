@@ -18,6 +18,7 @@
     align-items: center;
     border-radius: 5px;
     border: 1px solid #cac9c9;
+    background-color: #fff;
     margin-right: 15px;
 }
 
@@ -91,12 +92,13 @@
     min-width: 420px;
     display: flex;
     height: auto;
-    border-radius: 2px 0 0 2px;
+    border-radius: 6px 0 0 6px;
     align-items: flex-start;
     padding: 15px;
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
+    background-color: #fff;
     cursor: pointer;
     border: 1px 0 solid transparent;
     transition: .3s;
@@ -244,6 +246,7 @@
 .hackathon-leaderboard-table{
     margin-top: 20px;
     width: auto;
+    min-width: 100%;
     border-spacing: 0 15px;
 }
 
@@ -497,6 +500,7 @@
     .hackathon-leaderboard-table{
         font-size: 16px;
         width: 100%;
+        min-width: none;
     }
     .hackathon-leaderboard-table thead tr td{
         padding: 0;

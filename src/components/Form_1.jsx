@@ -31,7 +31,7 @@ function Form1({ setFormPage, setFormData }){
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="companyName">Company Name <span>*</span></label>
+                <label htmlFor="companyName">Company Name <span className='orange'>*</span></label>
                 <input
                     type="text"
                     id="companyName"
@@ -42,7 +42,7 @@ function Form1({ setFormPage, setFormData }){
                     required
                 />
                 
-                <label htmlFor="cinNumber">CIN Number <span>*</span></label>
+                <label htmlFor="cinNumber">CIN Number <span className='orange'>*</span></label>
                 <input
                     type="text"
                     id="cinNumber"
@@ -53,7 +53,7 @@ function Form1({ setFormPage, setFormData }){
                     required
                 />
                 
-                <label htmlFor="industrySector">Industry/Sector <span>*</span></label>
+                <label htmlFor="industrySector">Industry/Sector <span className='orange'>*</span></label>
                 <select
                     name="industrySector"
                     id="industrySector"
@@ -67,7 +67,7 @@ function Form1({ setFormPage, setFormData }){
                     <option value="example 3">Example 3</option>
                 </select>
                 
-                <label htmlFor="companyMail">Company Mail <span>*</span></label>
+                <label htmlFor="companyMail">Company Mail <span className='orange'>*</span></label>
                 <input
                     type="email"
                     id="companyMail"

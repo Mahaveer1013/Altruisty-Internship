@@ -38,7 +38,7 @@ function Form2({ handleSubmit }) {
     return (
         <>
             <form onSubmit={handleProblemSubmit}>
-                <label htmlFor="problemTitle">Problem Statement Title <span>*</span></label>
+                <label htmlFor="problemTitle">Problem Statement Title <span className='orange'>*</span></label>
                 <input
                     type="text"
                     id="problemTitle"
@@ -48,7 +48,7 @@ function Form2({ handleSubmit }) {
                     required
                 />
 
-                <label htmlFor="problemStatement">Problem Statement <span>*</span></label>
+                <label htmlFor="problemStatement">Problem Statement <span className='orange'>*</span></label>
                 <textarea
                     id="problemStatement"
                     name="problemStatement"
@@ -58,7 +58,7 @@ function Form2({ handleSubmit }) {
                     required
                 />
 
-                <label htmlFor="problemDescription">Problem Description <span>*</span></label>
+                <label htmlFor="problemDescription">Problem Description <span className='orange'>*</span></label>
                 <textarea
                     id="problemDescription"
                     name="problemDescription"
@@ -68,7 +68,7 @@ function Form2({ handleSubmit }) {
                     required
                 />
 
-                <label htmlFor="themeName">Theme Name <span>*</span></label>
+                <label htmlFor="themeName">Theme Name <span className='orange'>*</span></label>
                 <input
                     type="text"
                     id="themeName"
@@ -76,7 +76,7 @@ function Form2({ handleSubmit }) {
                     value={problemFormData.themeName}
                     onChange={handleProblemFormChange}
                 />
-                <label htmlFor="expectedOutcome">Expected Outcome <span>*</span></label>
+                <label htmlFor="expectedOutcome">Expected Outcome <span className='orange'>*</span></label>
                 <textarea
                     id="expectedOutcome"
                     name="expectedOutcome"
@@ -86,7 +86,7 @@ function Form2({ handleSubmit }) {
                     required
                 />
 
-                <label htmlFor="constraintsRequirements">Constraints and Requirements <span>*</span></label>
+                <label htmlFor="constraintsRequirements">Constraints and Requirements <span className='orange'>*</span></label>
                 <textarea
                     id="constraintsRequirements"
                     name="constraintsRequirements"
@@ -96,7 +96,7 @@ function Form2({ handleSubmit }) {
                     required
                 />
 
-                <label htmlFor="evaluationCriteria">Evaluation Criteria <span>*</span></label>
+                <label htmlFor="evaluationCriteria">Evaluation Criteria <span className='orange'>*</span></label>
                 <input
                     type="text"
                     id="evaluationCriteria"
@@ -104,7 +104,7 @@ function Form2({ handleSubmit }) {
                     value={problemFormData.evaluationCriteria}
                     onChange={handleProblemFormChange}
                 />
-                <label htmlFor="supportingResources">Supporting Resources <span>*</span></label>
+                <label htmlFor="supportingResources">Supporting Resources <span className='orange'>*</span></label>
                 <textarea
                     id="supportingResources"
                     name="supportingResources"
@@ -114,7 +114,7 @@ function Form2({ handleSubmit }) {
                     required
                 />
 
-                <label htmlFor="timeline">Timeline <span>*</span></label>
+                <label htmlFor="timeline">Timeline <span className='orange'>*</span></label>
                 <textarea
                     id="timeline"
                     name="timeline"
@@ -123,7 +123,7 @@ function Form2({ handleSubmit }) {
                     onChange={handleProblemFormChange}
                     required
                 />
-                <label htmlFor="imageFile">Upload Image <span>*</span></label>
+                <label htmlFor="imageFile">Upload Image <span className='orange'>*</span></label>
                 <input
                     type="file"
                     id="imageFile"

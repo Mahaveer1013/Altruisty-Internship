@@ -6,6 +6,10 @@
     --blue: #032d60;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -16,6 +20,7 @@
 
 body{
     font-family:'Times New Roman', Times, serif;
+    background-color: #f5f7f7;
 }
 
 /* main */

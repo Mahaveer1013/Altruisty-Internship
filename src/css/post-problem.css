@@ -12,7 +12,7 @@
 }
 
 .post-problem .title{
-    font-size: 25px;
+    font-size: 45px;
     text-align: start;
     text-align: center;
     width: 100%;
@@ -48,7 +48,7 @@
 .post-problem .form-div .form-title{
     color: var(--blue);
     font-weight: bolder;
-    font-size: 22px;
+    font-size: 26px;
     margin-bottom: 15px;
 }
 
@@ -63,12 +63,12 @@
 
 .post-problem .form-div form label{
     padding-bottom: 7px;
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .post-problem .form-div form input,.post-problem .form-div form select, .post-problem .form-div form textarea {
     margin-bottom: 14px;
-    padding: 6px 10px;
+    padding: 10px;
     border-radius: 3px;
     border: 1px solid;
 }
@@ -92,16 +92,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 3px;
+    border-radius: 5px;
+    background-color: var(--blue);
+    color: white;
     padding: 5px 15px;
+    border: none;
     width: 120px;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 18px;
     align-self: center;
 }
 
 .ipss-form-next:hover{
-    background-color: #ddd;
+    color: var(--orange);
 }
 
 
@@ -118,6 +121,18 @@
     }
     .post-problem .form-div .left, .post-problem .form-div .right{
         width: 100%;
+    }
+    .post-problem .title{
+        font-size: 26px;
+    }
+    .post-problem .form-div .form-title{
+        font-size: 22px;
+    }
+    .post-problem .form-div form label{
+        font-size: 16px;
+    }
+    .ipss-form-next{
+        font-size: 14px;
     }
 }
 

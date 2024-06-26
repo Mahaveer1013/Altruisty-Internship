@@ -6,11 +6,13 @@ import Admin from "./Admin";
 import HackathonPage from "./HackathonPage";
 import AllHackathons from "./AllHackathons";
 import ViewHackathon from "./ViewHackathon";
+import ScrollToTop from "../components/ScrollToTop";
 
 export function Main() {
     return <>
         <HashRouter>
             <Navbar />
+            <ScrollToTop />
             <div className="main">
                 <Routes>
                     <Route path="/" element={<Home />} />

@@ -111,7 +111,7 @@ export default function HackathonPage() {
     return (
         <>
             <div className="hackathons-page">
-                <div className="hackathon-search">
+                {/* <div className="hackathon-search">
                     <label htmlFor="search-hackathon">
                         <span className="material-symbols-outlined">search</span>
                         <input type="search" placeholder="Search Problems" id="search-hackathon" />
@@ -120,7 +120,7 @@ export default function HackathonPage() {
                     <button className="submit-search-hackathon-symbol">
                         <span className="material-symbols-outlined">search</span>
                     </button>
-                </div>
+                </div> */}
                 <div className="main-hackathon-page">
                     <div className="hackathon-list-page">
                         <h1>Problems for you</h1>

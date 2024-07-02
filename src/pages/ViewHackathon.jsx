@@ -17,35 +17,33 @@ const ViewHackathon = () => {
 
   return (
     <div className='view-hackathon'>
-      <div className="problem-title">
+      <div className="header">
         <h1>{hackathondata.title}</h1>
       </div>
-      <div className="problem-n-rules">
-        <div className="problem-details">
-          <h1>Problem Statement:</h1>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique nostrum eos repellat tempore asperiores, velit voluptate modi nisi et sequi aspernatur nulla blanditiis, tenetur ea. Dicta ullam, corrupti eveniet non tempore, excepturi possimus cumque quod esse illo expedita quibusdam dolorum blanditiis praesentium beatae. Alias, natus tempore exercitationem hic unde earum dolorem. Nisi eius illum sint ut nobis. Cupiditate culpa asperiores tempora voluptates amet ut ea placeat, perspiciatis nemo mollitia veniam rem tenetur, voluptas at sequi provident, dignissimos officiis. Possimus incidunt officiis id officia recusandae, aperiam sunt! Harum, odit beatae fuga culpa nulla reiciendis ipsa dicta praesentium atque, repudiandae maiores maxime?</p>
-          <h1>Rules:</h1>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique nostrum eos repellat tempore asperiores, velit voluptate modi nisi et sequi aspernatur nulla blanditiis, tenetur ea. Dicta ullam, corrupti eveniet non tempore, excepturi possimus cumque quod esse illo expedita quibusdam dolorum blanditiis praesentium beatae. Alias, natus tempore exercitationem hic unde earum dolorem. Nisi eius illum sint ut nobis. Cupiditate culpa asperiores tempora voluptates amet ut ea placeat, perspiciatis nemo mollitia veniam rem tenetur, voluptas at sequi provident, dignissimos officiis. Possimus incidunt officiis id officia recusandae, aperiam sunt! Harum, odit beatae fuga culpa nulla reiciendis ipsa dicta praesentium atque, repudiandae maiores maxime?</p>
-          <h1>Constraints:</h1>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique nostrum eos repellat tempore asperiores, velit voluptate modi nisi et sequi aspernatur nulla blanditiis, tenetur ea. Dicta ullam, corrupti eveniet non tempore, excepturi possimus cumque quod esse illo expedita quibusdam dolorum blanditiis praesentium beatae. Alias, natus tempore exercitationem hic unde earum dolorem. Nisi eius illum sint ut nobis. Cupiditate culpa asperiores tempora voluptates amet ut ea placeat, perspiciatis nemo mollitia veniam rem tenetur, voluptas at sequi provident, dignissimos officiis. Possimus incidunt officiis id officia recusandae, aperiam sunt! Harum, odit beatae fuga culpa nulla reiciendis ipsa dicta praesentium atque, repudiandae maiores maxime?</p>
+      <div className="content">
+        <div className="details">
+          <div className="section">
+            <h2>Problem Statement</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem ab quisquam magnam vel possimus dolor minus aspernatur officia cumque obcaecati harum, consequatur veniam deleniti ut amet temporibus. Veritatis hic at fugiat beatae ducimus ratione adipisci iste, magnam necessitatibus labore dolorum quo animi ipsum optio ad tenetur, molestiae placeat corporis repudiandae, repellat similique nesciunt ipsa. Ipsam porro nihil architecto aut, provident quod alias minus laborum earum doloribus, doloremque impedit numquam sapiente sunt est dolorum perferendis! Unde temporibus nemo eos consequuntur dolores recusandae ratione ad accusantium officia repellendus iste tempora exercitationem soluta placeat cupiditate facere ullam labore ab consequatur dicta, quidem molestias.</p>
+          </div>
+          <div className="section">
+            <h2>Rules</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem ab quisquam magnam vel possimus dolor minus aspernatur officia cumque obcaecati harum, consequatur veniam deleniti ut amet temporibus. Veritatis hic at fugiat beatae ducimus ratione adipisci iste, magnam necessitatibus labore dolorum quo animi ipsum optio ad tenetur, molestiae placeat corporis repudiandae, repellat similique nesciunt ipsa. Ipsam porro nihil architecto aut, provident quod alias minus laborum earum doloribus, doloremque impedit numquam sapiente sunt est dolorum perferendis! Unde temporibus nemo eos consequuntur dolores recusandae ratione ad accusantium officia repellendus iste tempora exercitationem soluta placeat cupiditate facere ullam labore ab consequatur dicta, quidem molestias.</p>
+          </div>
+          <div className="section">
+            <h2>Constraints</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem ab quisquam magnam vel possimus dolor minus aspernatur officia cumque obcaecati harum, consequatur veniam deleniti ut amet temporibus. Veritatis hic at fugiat beatae ducimus ratione adipisci iste, magnam necessitatibus labore dolorum quo animi ipsum optio ad tenetur, molestiae placeat corporis repudiandae, repellat similique nesciunt ipsa. Ipsam porro nihil architecto aut, provident quod alias minus laborum earum doloribus, doloremque impedit numquam sapiente sunt est dolorum perferendis! Unde temporibus nemo eos consequuntur dolores recusandae ratione ad accusantium officia repellendus iste tempora exercitationem soluta placeat cupiditate facere ullam labore ab consequatur dicta, quidem molestias.</p>
+          </div>
         </div>
-        <div className="problem-rules">
-          <img src={home_1} alt={home_1} />
-          <p className='problem-p'>
+        <div className="sidebar">
+          <img src={home_1} alt="Hackathon" className="hackathon-image" />
+          <div className="info">
             <h3>Date Posted:</h3>
-              <div className="timeline">
-              <div className="circle"></div>
-              <p>{hackathondata.date_posted}</p>
-            </div>
-          </p>
-          <p className='problem-p'>
+            <p>{hackathondata.date_posted}</p>
             <h3>Timeline:</h3>
-            <div className="timeline">
-              <div className="circle"></div>
-              <p>27 Jun 2024 @ 5:30am GMT+5:30</p>
-            </div>
-          </p>
-          <Link to='/provide-solution' className='solve-now'> Solve now </Link>
+            <p>27 Jun 2024 @ 5:30am GMT+5:30</p>
+          </div>
+          <Link to='provide-solution' className='solve-now'> Solve now </Link>
         </div>
       </div>
     </div>

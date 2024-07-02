@@ -7,6 +7,7 @@ import HackathonPage from "./HackathonPage";
 import AllHackathons from "./AllHackathons";
 import ViewHackathon from "./ViewHackathon";
 import ScrollToTop from "../components/ScrollToTop";
+import SubmitSolution from "./SubmitSolution";
 
 export function Main() {
     return <>
@@ -23,7 +24,7 @@ export function Main() {
                         <Route path="all-hackathons" element={<AllHackathons />} />
                         <Route path=":id" >
                             <Route index element={<ViewHackathon />} />
-                            <Route path="submit-solution" element={<HackathonPage />} />
+                            <Route path="provide-solution" element={<SubmitSolution />} />
                         </Route>
                         {/* <Route path="submit-solution" element={<HackathonPage />} /> */}
                     </Route>

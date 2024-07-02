@@ -1,232 +1,271 @@
-.home{
-    background-color: #f5f7f7;
-}
-.home > .title p{
-    font-size: 40px;
-    padding: 15px;
-    font-weight: bolder;
-    color: var(--orange);
+/* Color Variables */
+:root {
+    --orange: #ce4d2f;
+    --bg: #eaf5fe;
+    --blue: #032d60;
+    --text-color: #333;
+    --white: #fff;
+    --gray: #666;
+    --dark-gray: #555;
 }
 
-.home .details{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    font-size: 17px;
-    font-weight: 600;
-    width: fit-content;
-    margin: auto;
+/* General Styles */
+/* body, html {
+    margin: 0;
     padding: 0;
-    background-color: white;
-}
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    background-color: var(--bg);
+    color: var(--text-color);
+} */
 
-.home .details li{
-    padding: 7px 10px;
-    height: 100%;
-    transition: background-color .3s ;
-    border-radius: 3px;
-}
-
-.home .details li:hover{
-    background-color: #ddd;
-    cursor: pointer;
-}
-
-.home .details li.active{
-    color: white;
-    background-color: var(--blue);
-}
-
-.home .det-page{
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items:safe;
-    justify-content: center;
-    margin-bottom: 100px;  
-}
-
-.home .det-page .part{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-    padding: 10px;
-    letter-spacing: 1px;
-    margin: 30px;
-    background-color: white;
+.home {
+    background-color: var(--white);
+    color: var(--text-color);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
     border-radius: 10px;
-    box-shadow: rgba(3, 0, 92, 0.12) 0px 0 4px 4px, rgba(3, 0, 92, 0.07) 0px 8px 18px;
-    width: 40%;
-    justify-content: center;
-    transition: .3s;
-    border: 1px solid transparent;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.home .det-page .part:hover{
-    box-shadow: 0 0 10px 10px #ddd;
-}
-
-.home .det-page .part:hover h3{
-    color: var(--orange);
-}
-
-.home .det-page .quote-part{
-    margin: 30px;
-    width: 40%;
-    height: 60%;
-    color: black;
-    align-self: center;
-    font-size: 23px;
+.home .title p {
+    font-size: 3em !important;
     text-align: center;
-}
-
-.home .det-page .quote-part img{
-    width: 80%;
-    border-radius: 10px;
-}
-
-.home .det-page h3{
     color: var(--blue);
-    text-align: center;
-    font-size: 27px;
     margin-bottom: 20px;
-}
-
-.home .det-page p{
-    font-size: 20px;
-}
-
-span.orange{
-    color: var(--orange);
     font-weight: bold;
 }
 
-.det-page .host-part{
+.home .details {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    letter-spacing: 1px;
-    box-shadow: rgba(3, 0, 92, 0.12) 0px 0 4px 4px, rgba(3, 0, 92, 0.07) 0px 8px 18px;
-    padding: 10px;
-    margin: 30px;
-    background-color: white;
-    border-radius: 3px;
-    width: 40%;
-    border: 1px solid transparent;
-    transition: .3s;
-}
-
-.home .det-page .host-part a{
-    color: white;
-    display: flex;
-    gap: 5px;
     justify-content: center;
-    align-items: center;
-    background-color: var(--blue);
-    padding: 8px 10px;
-    border-radius: 5px;
-    width: 200px;
-    align-self: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.home .det-page .host-part p{
-    margin-bottom: 10px;
+.home .details li {
+    padding: 15px 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s, color 0.3s;
+    font-weight: bold;
+    color: var(--blue);
 }
 
-.know-more-btn{
-    width: 100%;
+.home .details li:hover,
+.home .details li.active  {
+    border-bottom: 2px solid var(--orange);
+    color: var(--orange);
+}
+
+.home .det-page {
+    margin-top: 20px;
+}
+
+.home .part, .home .quote-part, .home .host-part, .home .know-more-btn {
+    margin-bottom: 30px;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.home h3 {
+    color: var(--orange);
+    margin-top: 0;
+    font-size: 2em;
     text-align: center;
 }
 
-.home .det-page .host-part:hover{
-    box-shadow: 0 0 10px 10px #ddd;
+.home p {
+    line-height: 1.8;
+    margin: 10px 0;
+    font-size: 1.2em;
+    text-align: center;
 }
 
-.know-more-btn button{
-    padding: 10px 20px;
-    cursor: pointer;  
-    background-color: var(--blue);
-    color: white;
+.home img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+.home .quote-part img{
+    margin: auto;
+    width: 400px;
+}
+
+.home .quote-part h1 {
+    font-size: 2.5em;
+    margin-top: 0;
+    text-align: center;
+}
+
+.home .know-more-btn button {
+    background-color: var(--orange);
+    color: var(--white);
     border: none;
+    padding: 15px 30px;
+    cursor: pointer;
     border-radius: 5px;
-    font-size: 20px;
-    font-weight: 600;
-    margin-top: 25px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.home .know-more-btn button:hover {
+    background-color: #b54328;
+}
 
-@media all and (max-width:768px){
-    .home > .title p{
-        font-size: 22px;
+.home .know-more-btn{
+    text-align: center;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--blue);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+footer a {
+    color: var(--orange);
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #b54328;
+}
+
+@media (max-width: 768px) {
+    .home .details {
+        flex-direction: column;
+        align-items: center;
     }
-    .home .details{
-        font-size: 16px;
+
+    .home .details li {
+        margin: 10px 0;
     }
-    .home .details li{
-        padding: 7px 5px;
-        text-align: center;
-    }
-    .home .det-page .part, .home .det-page .host-part{
-        width: 100%;
-        margin: 30px;
-        padding: 10px;
+
+    .home .part, .home .quote-part, .home .host-part, .home .know-more-btn {
         margin-bottom: 20px;
     }
-    .home .det-page .quote-part{
-        width: 100%;
-        margin: 0;
-    }
-    .home .det-page .quote-part img{
-        width: 100%;
-        border-radius: 0;
-    }
-    .home .det-page .one{
-        order: 1;
-    }
-    .home .det-page .two{
-        order: 2;
-    }
-    .home .det-page .three{
-        order: 3;
-    }
-    .home .det-page .four{
-        order: 4;
-    }
-    .home .det-page .five{
-        order: 5;
-    }
-    .home .det-page .six{
-        order: 6;
-    }
-    .home .det-page .seven{
-        order: 7;
-    }
-    .home .det-page .eight{
-        order: 8;
-    }
-    .home .det-page .nine{
-        order: 9;
+
+    .home .title p {
+        font-size: 2.5em !important;
     }
 
+    .home .quote-part h1, .home .quote-part p, .home .host-part h3, .home .host-part p, .home .part h3, .home .part p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .home .title p {
+        font-size: 2em !important;
+    }
+
+    .home .details li {
+        font-size: 1em;
+    }
+
+    .home .quote-part h1, .home .quote-part p, .home .host-part h3, .home .host-part p, .home .part h3, .home .part p {
+        font-size: 0.9em;
+    }
+}
+
+/* Ensuring good UX for forms */
+.home input[type="text"], .home input[type="email"], .home input[type="password"], .home textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.home input[type="text"]:focus, .home input[type="email"]:focus, .home input[type="password"]:focus, .home textarea:focus {
+    border-color: var(--orange);
+    outline: none;
+}
+
+.home label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--dark-gray);
+}
+
+/* Ensuring proper alignment */
+.container { 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.home .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+}
+
+.home .col {
+    flex: 1;
+    padding: 10px;
+}
+
+/* Enhanced Links */
+.home a.important-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  background-color: var(--orange);
+  color: var(--white);
+  width: 300px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+  margin: 10px 0;
+  margin: auto;
+}
+
+.home a.important-button:hover {
+  background-color: #b54328;
+  transform: scale(1.05);
+}
+
+.home a.important-button span {
+  margin-right: 10px;
 }
 
 
-@media all and (max-width:425px){
-    .home > .title p{
-        font-size: 20px;
-    }
-    .home .det-page h3{
-        font-size: 22px;
-    }
-    .home .det-page p{
-        font-size: 17px;
-    }
-    .home .det-page .quote-part{
-        font-size: 20px;
-        padding: 0;
-    }
-    .home .details{
-        gap: 10px;
+@media (max-width: 768px) {
+    .home .row {
+        flex-direction: column;
     }
 }
+
+@media (max-width: 480px) {
+    .home .title p {
+        font-size: 1.8em;
+    }
+    .home a.important-button {
+      width: 90%;
+      padding: 10px 10px;
+    }
+}
+
+

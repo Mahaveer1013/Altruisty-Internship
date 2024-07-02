@@ -1,12 +1,4 @@
-:root {
-    --orange: #ce4d2f;
-    --bg: #eaf5fe;
-    --blue: #032d60;
-    --text-color: #333;
-    --border-radius: 8px;
-    --padding: 16px;
-  }
-  
+ 
 .submit-solution {
     max-width: 800px;
     margin: 2rem auto;

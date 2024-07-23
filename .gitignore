@@ -7,9 +7,10 @@
 .env
 # testing
 /coverage
-
+test-60704-firebase-adminsdk-m7hjj-58c6fdd00e.json
 # production
 /build
+node_modules
 
 # misc
 .DS_Store

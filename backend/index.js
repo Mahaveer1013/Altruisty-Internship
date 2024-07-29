@@ -9,6 +9,8 @@ import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 import { User } from './models/user.js'; // Import your Mongoose model
 import loginRequired from './middlewares/middleware.js';
+import CryptoJS from 'crypto-js';
+import bcrypt from 'bcryptjs';
 
 dotenv.config();
 
@@ -25,9 +27,17 @@ admin.initializeApp({
   credential: admin.credential.applicationDefault(),
 });
 
+
+const decryptData = (data) => {
+  const bytes = CryptoJS.AES.decrypt(data, process.env.SECRET_KEY);
+  const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+  return decryptedData;
+};
+
 export function generateAccessToken(payload) {
   return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 }
+
 export function generateRefreshToken(payload) {
   return jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '30d' });
 }
@@ -35,18 +45,14 @@ export function generateRefreshToken(payload) {
 app.get('/user', loginRequired , async (req, res) => {
   res.json(req.user);
 });
-  
+
   
 app.post('/firebase-login', async (req, res) => {
-  const { idToken } = req.body;
-  console.log(idToken);
-
+  const { encrypted_email } = req.body;
+  console.log(encrypted_email);
+  const email = decryptData(encrypted_email)
+  console.log(email);
   try {
-    // Verify and decode the Firebase ID token
-    const decodedToken = await admin.auth().verifyIdToken(idToken);
-    const email = decodedToken.email;
-    console.log(decodedToken,'\n\n');
-
     // Fetch user data from MongoDB
     const user = await User.findOne({ email: email });
 
@@ -84,6 +90,67 @@ app.post('/firebase-login', async (req, res) => {
   }
 });
 
+app.post('/credential-login', async (req, res) => {
+  try {
+    const { encrypted_username, encrypted_password } = req.body;
+    const username = decryptData(encrypted_username);
+    const password = decryptData(encrypted_password);
+
+    // Fetch user data from MongoDB
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(401).json({ msg: 'Invalid Credentials' });
+    }
+
+    // Check password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ msg: 'Invalid Credentials' });
+    }
+
+    // Create a payload for the JWT token
+    const tokenPayload = { id: user._id, username: user.username };
+    const accessToken = generateAccessToken(tokenPayload);
+    const refreshToken = generateRefreshToken(tokenPayload);
+
+    // Set cookies
+    res.cookie('accessToken', accessToken, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
+    res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
+
+    res.json({ msg: 'Login successful' });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: 'Server Error' });
+  }
+});
+
+// Registration route
+app.post('/credential-signup', async (req, res) => {
+  try {
+    const { encrypted_username, encrypted_password } = req.body;
+    const username = decryptData(encrypted_username);
+    const password = decryptData(encrypted_password);
+
+    // Check if the user already exists
+    const existingUser = await User.findOne({ username });
+    if (existingUser) {
+      return res.status(400).json({ msg: 'User already exists' });
+    }
+
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 12);
+
+    // Create a new user
+    const newUser = new User({ username, password: hashedPassword });
+    await newUser.save();
+
+    res.status(201).json({ msg: 'User registered successfully' });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: 'Server Error' });
+  }
+});
+
 app.get('/admin-route', loginRequired, async (req, res) => {
   console.log(req.user.user_type);
   if (req.user.user_type !== 1) {
@@ -118,6 +185,10 @@ app.get('/logout', async (req, res) => {
   });
   res.send({message:'logout successfull'})
 })
+
+
+
+
 
 mongoose.connect(process.env.MONGOURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {

@@ -2,17 +2,29 @@ import { auth, googleProvider } from '../firebaseConfig';
 import { signInWithPopup, signOut } from 'firebase/auth';
 import React from 'react';
 import axios from 'axios'
+import CryptoJS from 'crypto-js';
 
 const GmailLogin = () => {
+
+    const Encrypted = (data) => {
+        const enc = CryptoJS.AES.encrypt(JSON.stringify(data), process.env.REACT_APP_SECRET_KEY).toString()
+        return enc;
+    }
+    
+      const Decrypted = (data) => {
+        const bytes = CryptoJS.AES.decrypt(data, process.env.REACT_APP_SECRET_KEY);
+        const dec = JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
+        return dec;
+      } // may useful in further process
 
     const signInWithGoogle = async () => {
         try {
             const result = await signInWithPopup(auth, googleProvider);
-            const idToken = await result.user.getIdToken();
-            console.log(idToken);
-            console.log(result.user.email);
-            // Send the ID token to your server
-            const response = await axios.post('http://localhost:5000/firebase-login', { idToken }, {
+            let email = result.user.email
+            if (!email) {
+                email = result.user.providerData[0].email
+            }
+            const response = await axios.post('http://localhost:5000/firebase-login', { encrypted_email : Encrypted(email) }, {
                 headers: {
                   'Content-Type': 'application/json'
                 },

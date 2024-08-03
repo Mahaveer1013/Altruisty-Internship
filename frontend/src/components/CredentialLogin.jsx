@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import CryptoJS from 'crypto-js';
+// import CryptoJS from 'crypto-js';
+// import api from '../api.js';
+import api from '../api.js';
 
 const CredentialLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [isSignup, setIsSignup] = useState(false); // State to toggle between login and signup forms
 
-    const Encrypted = (data) => {
-        const enc = CryptoJS.AES.encrypt(JSON.stringify(data), process.env.REACT_APP_SECRET_KEY).toString();
-        return enc;
-    };
-
     const handleSubmit = async (e, type) => {
         e.preventDefault();
-        const url = type === 'signup' ? 'http://localhost:5000/credential-signup' : 'http://localhost:5000/credential-login';
+        const url = type === 'signup' ? '/credential-signup' : '/credential-login';
         try {
-            const response = await axios.post(url, { 
-                encrypted_username: Encrypted(username),
-                encrypted_password: Encrypted(password)
+            const response = await api.post(url, {
+                username: username,
+                password: password
             }, {
                 headers: {
                     'Content-Type': 'application/json'
@@ -38,7 +34,7 @@ const CredentialLogin = () => {
 
     const logout = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/logout', {
+            const response = await api.get('/logout', {
                 withCredentials: true
             });
 
@@ -52,7 +48,7 @@ const CredentialLogin = () => {
 
     const checkUser = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/user', {
+            const response = await api.get('/user', {
                 withCredentials: true
             });
 
@@ -66,7 +62,7 @@ const CredentialLogin = () => {
 
     const adminProtectedRoute = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/admin-route', {
+            const response = await api.get('/check-admin', {
                 withCredentials: true
             });
 
@@ -80,7 +76,7 @@ const CredentialLogin = () => {
 
     const userProtectedRoute = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/user-route', {
+            const response = await api.get('/check-user', {
                 withCredentials: true
             });
 
@@ -93,26 +89,26 @@ const CredentialLogin = () => {
     };
 
     return (
-        <div style={{marginTop:'190px'}}>
+        <div style={{ marginTop: '190px' }}>
             <button onClick={() => setIsSignup(false)}>Login</button>
             <button onClick={() => setIsSignup(true)}>Sign Up</button>
-            
+
             {isSignup ? (
                 <form onSubmit={(e) => handleSubmit(e, 'signup')}>
                     <h2>Sign Up</h2>
                     Username:
-                    <input 
-                        type="text" 
-                        value={username} 
-                        onChange={(e) => setUsername(e.target.value)} 
-                        required 
+                    <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
                     />
                     Password:
-                    <input 
-                        type="password" 
-                        value={password} 
-                        onChange={(e) => setPassword(e.target.value)} 
-                        required 
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
                     />
                     <button type="submit">Sign Up</button>
                 </form>
@@ -120,18 +116,18 @@ const CredentialLogin = () => {
                 <form onSubmit={(e) => handleSubmit(e, 'login')}>
                     <h2>Login</h2>
                     Username:
-                    <input 
-                        type="text" 
-                        value={username} 
-                        onChange={(e) => setUsername(e.target.value)} 
-                        required 
+                    <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
                     />
                     Password:
-                    <input 
-                        type="password" 
-                        value={password} 
-                        onChange={(e) => setPassword(e.target.value)} 
-                        required 
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
                     />
                     <button type="submit">Login</button>
                 </form>

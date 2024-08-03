@@ -1,21 +1,10 @@
 import { auth, googleProvider } from '../firebaseConfig';
 import { signInWithPopup, signOut } from 'firebase/auth';
 import React from 'react';
-import axios from 'axios'
-import CryptoJS from 'crypto-js';
+import api from '../api';
+// import api from '../api';
 
 const GmailLogin = () => {
-
-    const Encrypted = (data) => {
-        const enc = CryptoJS.AES.encrypt(JSON.stringify(data), process.env.REACT_APP_SECRET_KEY).toString()
-        return enc;
-    }
-    
-      const Decrypted = (data) => {
-        const bytes = CryptoJS.AES.decrypt(data, process.env.REACT_APP_SECRET_KEY);
-        const dec = JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
-        return dec;
-      } // may useful in further process
 
     const signInWithGoogle = async () => {
         try {
@@ -24,30 +13,30 @@ const GmailLogin = () => {
             if (!email) {
                 email = result.user.providerData[0].email
             }
-            const response = await axios.post('http://localhost:5000/firebase-login', { encrypted_email : Encrypted(email) }, {
+            const response = await api.post('/firebase-login', { email: email }, {
                 headers: {
-                  'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
-                withCredentials:true
-              });
-          
-              // Extract the data from the response
-              const data = response.data;
-              console.log(data);
-            
-          } catch (error) {
+                withCredentials: true
+            });
+
+            // Extract the data from the response
+            const data = response.data;
+            console.log(data);
+
+        } catch (error) {
             console.error('Error during sign-in:', error);
-          }
+        }
     };
 
     const checkUser = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/user', {
-                withCredentials:true
-              });
-          
-              // Extract the data from the response
-              const data = response.data;
+            const response = await api.get('/user', {
+                withCredentials: true
+            });
+
+            // Extract the data from the response
+            const data = response.data;
             console.log(data);
         } catch (error) {
             console.error('Error during sign-in:', error);
@@ -56,12 +45,12 @@ const GmailLogin = () => {
 
     const adminProtectedRoute = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/admin-route', {
-                withCredentials:true
-              });
-          
-              // Extract the data from the response
-              const data = response.data;
+            const response = await api.get('/check-admin', {
+                withCredentials: true
+            });
+
+            // Extract the data from the response
+            const data = response.data;
             console.log(data);
         } catch (error) {
             console.error('Error during sign-in:', error);
@@ -70,12 +59,12 @@ const GmailLogin = () => {
 
     const userProtectedRoute = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/user-route', {
-                withCredentials:true
-              });
-          
-              // Extract the data from the response
-              const data = response.data;
+            const response = await api.get('/check-user', {
+                withCredentials: true
+            });
+
+            // Extract the data from the response
+            const data = response.data;
             console.log(data);
         } catch (error) {
             console.error('Error during sign-in:', error);
@@ -84,12 +73,12 @@ const GmailLogin = () => {
 
     const logout = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/logout', {
-                withCredentials:true
-              });
-          
-              // Extract the data from the response
-              const data = response.data;
+            const response = await api.get('/logout', {
+                withCredentials: true
+            });
+
+            // Extract the data from the response
+            const data = response.data;
             console.log(data);
         } catch (error) {
             console.error('Error during sign-in:', error);

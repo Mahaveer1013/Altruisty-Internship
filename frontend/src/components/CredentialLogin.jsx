@@ -32,117 +32,82 @@ const CredentialLogin = () => {
         }
     };
 
-    const logout = async () => {
-        try {
-            const response = await api.get('/logout', {
-                withCredentials: true
-            });
-
-            // Extract the data from the response
-            const data = response.data;
-            console.log(data);
-        } catch (error) {
-            console.error('Error during logout:', error);
-        }
-    };
-
-    const checkUser = async () => {
-        try {
-            const response = await api.get('/user', {
-                withCredentials: true
-            });
-
-            // Extract the data from the response
-            const data = response.data;
-            console.log(data);
-        } catch (error) {
-            console.error('Error during check user:', error);
-        }
-    };
-
-    const adminProtectedRoute = async () => {
-        try {
-            const response = await api.get('/check-admin', {
-                withCredentials: true
-            });
-
-            // Extract the data from the response
-            const data = response.data;
-            console.log(data);
-        } catch (error) {
-            console.error('Error during admin route access:', error);
-        }
-    };
-
-    const userProtectedRoute = async () => {
-        try {
-            const response = await api.get('/check-user', {
-                withCredentials: true
-            });
-
-            // Extract the data from the response
-            const data = response.data;
-            console.log(data);
-        } catch (error) {
-            console.error('Error during user route access:', error);
-        }
-    };
-
     return (
-        <div style={{ marginTop: '190px' }}>
-            <button onClick={() => setIsSignup(false)}>Login</button>
-            <button onClick={() => setIsSignup(true)}>Sign Up</button>
+        <div className="flex flex-col items-center mt-5">
+            <div className="mb-4">
+                <button
+                    className={`px-4 py-2 rounded ${!isSignup ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-300 text-gray-700'}`}
+                    onClick={() => setIsSignup(false)}
+                >
+                    Login
+                </button>
+                <button
+                    className={`px-4 py-2 rounded ${isSignup ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-300 text-gray-700'}`}
+                    onClick={() => setIsSignup(true)}
+                >
+                    Sign Up
+                </button>
+            </div>
 
             {isSignup ? (
-                <form onSubmit={(e) => handleSubmit(e, 'signup')}>
-                    <h2>Sign Up</h2>
-                    Username:
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
-                    Password:
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                    <button type="submit">Sign Up</button>
+                <form onSubmit={(e) => handleSubmit(e, 'signup')} className="w-full max-w-sm bg-white p-6 rounded shadow-md">
+                    <h2 className="text-xl font-semibold mb-4">Sign Up</h2>
+                    <div className="mb-4">
+                        <label htmlFor="signupUsername" className="block text-sm font-medium mb-1">Username:</label>
+                        <input
+                            id="signupUsername"
+                            type="text"
+                            className="w-full border border-gray-300 px-3 py-2 rounded"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="signupPassword" className="block text-sm font-medium mb-1">Password:</label>
+                        <input
+                            id="signupPassword"
+                            type="password"
+                            className="w-full border border-gray-300 px-3 py-2 rounded"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        Sign Up
+                    </button>
                 </form>
             ) : (
-                <form onSubmit={(e) => handleSubmit(e, 'login')}>
-                    <h2>Login</h2>
-                    Username:
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
-                    Password:
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                    <button type="submit">Login</button>
+                <form onSubmit={(e) => handleSubmit(e, 'login')} className="w-full max-w-sm bg-white p-6 rounded shadow-md">
+                    <h2 className="text-xl font-semibold mb-4">Login</h2>
+                    <div className="mb-4">
+                        <label htmlFor="loginUsername" className="block text-sm font-medium mb-1">Username:</label>
+                        <input
+                            id="loginUsername"
+                            type="text"
+                            className="w-full border border-gray-300 px-3 py-2 rounded"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="loginPassword" className="block text-sm font-medium mb-1">Password:</label>
+                        <input
+                            id="loginPassword"
+                            type="password"
+                            className="w-full border border-gray-300 px-3 py-2 rounded"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        Login
+                    </button>
                 </form>
             )}
-
-            <button onClick={logout}>Logout</button>
-            <div onClick={checkUser}>
-                Check User
-            </div>
-            <div onClick={adminProtectedRoute}>
-                For Admin
-            </div>
-            <div onClick={userProtectedRoute}>
-                For User
-            </div>
         </div>
     );
 };

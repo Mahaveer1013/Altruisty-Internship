@@ -6,6 +6,10 @@ import admin from 'firebase-admin';
 import mongoose from 'mongoose';
 import apiRoutes from './src/routes/routes.js'; 
 import { decryptRequest, encryptResponse } from './src/middlewares/middleware.js';
+import socketRouter from './src/routes/socketRouter.js';
+import http from 'http'
+import {Server} from 'socket.io'
+import socketLoginRequired from './src/middlewares/socketLoginRequired.js';
 
 
 const app = express();
@@ -22,15 +26,22 @@ app.use(cors({
 
 app.use(cookieParser());
 
+const server = http.createServer(app);
+const io = new Server(server);
+export const userSocketMap = new Map();
+
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
 });
 
 app.use('/', apiRoutes);
 
+io.use(socketLoginRequired)
+socketRouter(io)
+
 mongoose.connect(process.env.MONGOURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    app.listen(5000, () => {
+    server.listen(5000, () => {
       console.log('Server is running on port http://localhost:5000');
     });
   })

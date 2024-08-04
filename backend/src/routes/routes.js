@@ -1,7 +1,7 @@
 import { credentialLogin, credentialSignup, firebaselogin, getUser, logout } from '../controllers/auth.js';
 import { checkIsAdmin, loginRequired } from '../middlewares/middleware.js';
 import express from 'express';
-import { checkUserRoute } from '../controllers/user.js';
+import { checkUserRoute, createCommunity } from '../controllers/user.js';
 import { checkAdminRoute } from '../controllers/admin.js';
 
 const router = express.Router();
@@ -20,6 +20,7 @@ router.get('/check-admin', loginRequired, checkIsAdmin, checkAdminRoute);
 
 // ===========> user routes <=============
 router.get('/check-user', loginRequired, checkUserRoute);
+router.post('/create-community', loginRequired, createCommunity);
 
 
 export default router;

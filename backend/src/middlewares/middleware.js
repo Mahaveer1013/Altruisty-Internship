@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import { User } from '../models/user.js';
-import { generateAccessToken, generateRefreshToken } from '../controllers/auth.js';
+import { generateAccessToken } from '../utils/tokenUtils.js';
 import jwt from 'jsonwebtoken';
 import CryptoJS from 'crypto-js';
 
@@ -14,7 +14,7 @@ const loginRequired = async (req, res, next) => {
 
   try {
     jwt.verify(accessToken, process.env.JWT_SECRET, async (err, decoded) => {
-      if (err && err.name === 'TokenExpiredError' && refreshToken) {
+      if (err && (err.name === 'TokenExpiredError' || err.name === 'JsonWebTokenError') && refreshToken) {
         jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (refreshErr, refreshDecoded) => {
           if (refreshErr) {
             return res.status(401).json({ message: 'Refresh token invalid or expired' });
@@ -24,32 +24,17 @@ const loginRequired = async (req, res, next) => {
           if (!user) {
             return res.status(404).json({ message: 'User not found' });
           }
+          console.log(user.email);
 
           const newAccessToken = generateAccessToken({
             email: user.email,
             user_type: user.user_type
           });
-
-          const remainingTime = refreshDecoded.exp - Math.floor(Date.now() / 1000);
-          let newRefreshToken = refreshToken;
-
-          if (remainingTime < 7 * 24 * 60 * 60) {
-            newRefreshToken = generateRefreshToken({
-              email: user.email,
-              user_type: user.user_type,
-            });
-            res.cookie('refreshToken', newRefreshToken, {
-              httpOnly: true,
-              maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-              secure: false,   // Set to true in production with HTTPS
-              sameSite: 'None' // Set 'SameSite' to 'None' for cross-site cookies
-            });
-          }
-
+          
           res.cookie('accessToken', newAccessToken, {
             httpOnly: true,
             maxAge: 3600000, // 1 hour
-            secure: false,   // Set to true in production with HTTPS
+            secure: true,   // Set to true in production with HTTPS
             sameSite: 'None' // Set 'SameSite' to 'None' for cross-site cookies
           });
 
@@ -116,7 +101,7 @@ const encryptResponse = (req, res, next) => {
 
   res.send = function (body) {
     if (!req.enc) {
-      console.log('Before encryption:', body);
+      console.log('response:', body);
       
       try {
         if (body !== null) {
@@ -128,7 +113,6 @@ const encryptResponse = (req, res, next) => {
           }
         }
         req.enc = true;
-        console.log('After encryption:', body);
       } catch (error) {
         console.error('Error during response encryption:', error);
         return res.status(500).json({ message: 'Internal server error' });

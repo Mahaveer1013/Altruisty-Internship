@@ -1,24 +1,9 @@
-import express from 'express';
 import { User } from '../models/user.js';
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import { generateAccessToken, generateRefreshToken } from '../utils/tokenUtils.js';
 
-const router = express.Router();
 
-// // Helper function to decrypt data
-// const decryptData = (data) => {
-//   const bytes = CryptoJS.AES.decrypt(data, process.env.SECRET_KEY);
-//   const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-//   return decryptedData;
-// };
 
-export function generateAccessToken(payload) {
-  return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
-}
-
-export function generateRefreshToken(payload) {
-  return jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '30d' });
-}
 
 // ============> Get user details <==========
 export const getUser = async (req, res) => {
@@ -90,8 +75,18 @@ export const credentialLogin = async (req, res) => {
     const refreshToken = generateRefreshToken(tokenPayload);
 
     // Set cookies
-    res.cookie('accessToken', accessToken, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
-    res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
+    res.cookie('accessToken', accessToken, {
+      httpOnly: true,
+      maxAge: 3600000, // 1 hour
+      secure: true,   // Set to true in production with HTTPS
+      sameSite: 'None' // Set 'SameSite' to 'None' for cross-site cookies
+    });
+    res.cookie('refreshToken', refreshToken, {
+      httpOnly: true,
+      maxAge: 259200000, // 30 days
+      secure: true,   // Set to true in production with HTTPS
+      sameSite: 'None' // Set 'SameSite' to 'None' for cross-site cookies
+    });
 
     res.json({ msg: 'Login successful' });
   } catch (error) {

@@ -7,6 +7,6 @@ export const checkAdminRoute = async (req, res) => {
     if (req.user.user_type !== 1) {
       res.status(401).json({ message: 'Unauthorized User' });
     } else {
-      res.send('You Are Admin');
+      res.json({'message':'You Are Admin'});
     }
 };

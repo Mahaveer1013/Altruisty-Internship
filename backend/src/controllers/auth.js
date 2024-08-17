@@ -1,6 +1,6 @@
-import { User } from '../models/user.js';
 import bcrypt from 'bcryptjs';
 import { generateAccessToken, generateRefreshToken } from '../utils/tokenUtils.js';
+import User from '../models/user.model.js';
 
 
 
@@ -62,7 +62,8 @@ export const credentialLogin = async (req, res) => {
     if (!user) {
       return res.status(401).json({ msg: 'Invalid Credentials' });
     }
-
+    console.log(user, 'test 1');
+    
     // Check password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
@@ -137,5 +138,4 @@ export const logout = async (req, res) => {
   });
   res.json({ message: 'Logout successful' });
 };
-
-
+ 

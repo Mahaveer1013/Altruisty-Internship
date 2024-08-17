@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 
 // Initialize socket connection
-const SERVER_URL = 'http://localhost:5000';
+const SERVER_URL = process.env.REACT_APP_BACKEND_URL;
 const socket = io(SERVER_URL, {
   transports: ['websocket'], // Use WebSocket for connection
   withCredentials: true

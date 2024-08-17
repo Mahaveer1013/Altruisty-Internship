@@ -1,5 +1,7 @@
 import { userSocketMap } from "../../index.js";
-import { Community, Message, User } from "../models/user.js";
+import Community from "../models/community.model.js";
+import Message from "../models/message.model.js";
+import User from "../models/user.model.js";
 
 const socketRouter = (io) => {
     io.on('connection', (socket) => {
@@ -7,7 +9,6 @@ const socketRouter = (io) => {
             userSocketMap.set(userId, socket.id);
             console.log(`User ${userId} connected`);
         });
-    
         // Join a community
         socket.on('joinCommunity', async ({ communityCode }) => {
             try {

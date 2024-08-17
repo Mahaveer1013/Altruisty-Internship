@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-// import CryptoJS from 'crypto-js';
-// import api from '../api.js';
-import api from '../api.js';
+import encryptApi from '../encryptApi.js';
 
 const CredentialLogin = () => {
     const [username, setUsername] = useState('');
@@ -12,7 +10,7 @@ const CredentialLogin = () => {
         e.preventDefault();
         const url = type === 'signup' ? '/credential-signup' : '/credential-login';
         try {
-            const response = await api.post(url, {
+            const response = await encryptApi.post(url, {
                 username: username,
                 password: password
             }, {

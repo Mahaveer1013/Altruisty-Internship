@@ -2,6 +2,7 @@ import { auth, googleProvider } from '../firebaseConfig';
 import { signInWithPopup } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import api from '../api';
+import encryptApi from '../encryptApi';
 
 const GmailLogin = () => {
     // State for storing responses
@@ -14,11 +15,12 @@ const GmailLogin = () => {
     useEffect(() => {
         const fetchCurrentUser = async () => {
             try {
-                const user = api.get('/user');
-                console.log(user);
-                setCurrentUser(user);
+                const response = await api.get('/user');
+                console.log(response.data);
+                setCurrentUser(response.data);
             } catch (error) {
-                console.error('Error fetching current user:', error);
+                console.log('Error fetching current user:', error);
+                setCurrentUser(null); // Set to null if there's an error
             }
         };
 
@@ -32,7 +34,7 @@ const GmailLogin = () => {
             if (!email) {
                 email = result.user.providerData[0].email;
             }
-            const response = await api.post('/firebase-login', { email: email }, {
+            const response = await encryptApi.post('/firebase-login', { email: email }, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -106,7 +108,7 @@ const GmailLogin = () => {
     const handleSendCommunityData = async () => {        
         if (communityName ) {
             try {
-                const response = await api.post('/create-community', {
+                const response = await encryptApi.post('/create-community', {
                     communityName,
                 }, {
                     headers: {

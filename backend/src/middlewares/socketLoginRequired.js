@@ -1,7 +1,7 @@
-import { User } from "../models/user.js";
 import jwt from 'jsonwebtoken';
 import { generateAccessToken } from '../utils/tokenUtils.js'; // Ensure you have utility functions for token generation
 import { userSocketMap } from "../../index.js";
+import User from '../models/user.model.js';
 
 const socketLoginRequired = async (socket, next) => {
   const cookies = socket.request.headers.cookie;

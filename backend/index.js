@@ -39,9 +39,10 @@ app.use('/', apiRoutes);
 io.use(socketLoginRequired)
 socketRouter(io)
 
+
 mongoose.connect(process.env.MONGOURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    server.listen(5000, () => {
+    server.listen(5000, '0.0.0.0',() => {
       console.log('Server is running on port http://localhost:5000');
     });
   })
